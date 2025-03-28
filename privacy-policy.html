@@ -4,7 +4,206 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Política de Privacidad - Aura Chile RP</title>
-    <!-- Mismo CSS que el primer archivo -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+        :root {
+            --primary: #747059;
+            --secondary: #5d6d7e;
+            --accent: #A29BFE;
+            --text: #2D3436;
+            --text-light: #636E72;
+            --bg: #F5F6FA;
+            --card: #FFFFFF;
+            --highlight-bg: rgba(108, 92, 231, 0.08);
+            --highlight-border: #6C5CE7;
+            --warning-bg: #FFF3E0;
+            --warning-border: #FFB74D;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --primary: #A29BFE;
+                --secondary: #6C5CE7;
+                --accent: #FF9FF3;
+                --text: #F5F6FA;
+                --text-light: #B2BEC3;
+                --bg: #1A1A1A;
+                --card: #2D3436;
+                --highlight-bg: rgba(162, 155, 254, 0.15);
+                --highlight-border: #A29BFE;
+                --warning-bg: #424242;
+                --warning-border: #FFB74D;
+            }
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg);
+            color: var(--text);
+            background-image: radial-gradient(circle at 10% 20%, rgba(168, 168, 255, 0.05) 0%, rgba(168, 168, 255, 0.05) 90%);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        .nav-container {
+            background: var(--card);
+            padding: 1rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .nav a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav a:hover {
+            color: var(--accent);
+            background: var(--highlight-bg);
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 1px solid rgba(108, 92, 231, 0.2);
+            padding-bottom: 20px;
+        }
+        
+        h1 {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 2.2rem;
+        }
+        
+        h2 {
+            color: var(--primary);
+            font-weight: 500;
+            margin-top: 35px;
+            font-size: 1.5rem;
+            position: relative;
+            padding-left: 15px;
+        }
+        
+        h2:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 5px;
+            height: 20px;
+            width: 5px;
+            background: var(--accent);
+            border-radius: 3px;
+        }
+        
+        p {
+            margin: 15px 0;
+            color: var(--text);
+        }
+        
+        .highlight {
+            background-color: var(--highlight-bg);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 25px 0;
+            border-left: 4px solid var(--highlight-border);
+        }
+        
+        .warning {
+            background-color: var(--warning-bg);
+            border-left: 4px solid var(--warning-border);
+        }
+        
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        a:hover {
+            color: var(--accent);
+            text-decoration: underline;
+        }
+        
+        ul {
+            padding-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 15px;
+        }
+        
+        li:before {
+            content: "•";
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+        }
+        
+        .date {
+            color: var(--secondary);
+            font-size: 0.9rem;
+            font-weight: 400;
+        }
+        
+        .contact-info {
+            background: rgba(253, 121, 168, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        
+        .legal-footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(108, 92, 231, 0.2);
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--secondary);
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                margin: 20px;
+                padding: 0 15px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .nav {
+                gap: 1rem;
+                padding: 0.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <nav class="nav-container">
@@ -15,67 +214,61 @@
         </div>
     </nav>
 
-    <div class="header">
-        <h1>Política de Privacidad de Aura Chile RP</h1>
-    </div>
-    
     <div class="container">
-        <div class="section">
-            <div class="disclaimer">
-                <h2>🔒 Protección de Datos</h2>
-                <p>Esta política aplica únicamente a los datos recopilados dentro del servidor de FiveM "Aura Chile RP". No compartimos información con terceros ni asociados externos.</p>
-            </div>
-
+        <header>
+            <h1>Política de Privacidad de Aura Chile RP</h1>
             <p class="date">Última actualización: 24/03/2025</p>
+        </header>
 
-            <h2>1. Información Recopilada</h2>
-            <p>Recopilamos exclusivamente datos necesarios para el funcionamiento del servidor:</p>
+        <div class="highlight">
+            <p>Esta política de privacidad explica cómo <strong>Aura Chile RP</strong> recopila y utiliza la información de los jugadores en nuestro servidor FiveM.</p>
+        </div>
+
+        <h2>1. Información que Recopilamos</h2>
+        <p>El servidor recopila y almacena los siguientes datos exclusivamente para FiveM:</p>
+        <ul>
+            <li><strong>IDs de usuario</strong> - Para identificación única de jugadores</li>
+            <li><strong>Contenido de tickets</strong> - Incluyendo mensajes y reportes</li>
+            <li><strong>Registros de moderación</strong> - Acciones realizadas por el staff</li>
+            <li><strong>Datos de personajes</strong> - Nombres, inventarios y progreso</li>
+            <li><strong>Métricas de uso</strong> - Sin información personal identificable</li>
+        </ul>
+
+        <h2>2. Cómo Usamos su Información</h2>
+        <ul>
+            <li>Proveer y mejorar los servicios del servidor</li>
+            <li>Resolver disputas y aplicar normas de la comunidad</li>
+            <li>Mantener registros de transacciones virtuales</li>
+            <li>Prevenir actividades fraudulentas o cheat</li>
+        </ul>
+
+        <div class="highlight">
+            <h2>3. Compartición de Datos</h2>
+            <p>No vendemos ni compartimos sus datos personales con terceros, excepto:</p>
             <ul>
-                <li>Identificador único de FiveM</li>
-                <li>Nombre de personaje y datos de rol</li>
-                <li>Registro de conexiones</li>
-                <li>Interacciones importantes en el juego</li>
+                <li>Cuando sea requerido por ley chilena</li>
+                <li>Para proteger derechos o seguridad de la comunidad</li>
+                <li>Con proveedores de servicios esenciales (ej: hosting)</li>
             </ul>
+        </div>
 
-            <h2>2. Uso de la Información</h2>
-            <p>Los datos se utilizan para:</p>
-            <ul>
-                <li>Mantener la integridad del servidor</li>
-                <li>Prevenir fraudes y cheats</li>
-                <li>Mejorar la experiencia de juego</li>
-                <li>Resolver disputas entre jugadores</li>
-            </ul>
+        <h2>4. Almacenamiento y Seguridad</h2>
+        <ul>
+            <li>Datos almacenados por máximo 6 meses</li>
+            <li>Protegidos con cifrado AES-256</li>
+            <li>Acceso restringido al equipo administrativo</li>
+        </ul>
 
-            <div class="highlight">
-                <h2>3. Seguridad de Datos</h2>
-                <p>Implementamos medidas de seguridad como:</p>
-                <ul>
-                    <li>Cifrado de información sensible</li>
-                    <li>Acceso restringido al personal autorizado</li>
-                    <li>Eliminación periódica de datos innecesarios</li>
-                </ul>
-            </div>
+        <div class="contact-info">
+            <h2>5. Contacto</h2>
+            <p>Para preguntas sobre privacidad:<br>
+            Email: privacidad@aurachilerp.cl<br>
+            Discord: chaotic.n</p>
+        </div>
 
-            <h2>4. Tus Derechos</h2>
-            <p>Puedes solicitar:</p>
-            <ul>
-                <li>Acceso a tus datos almacenados</li>
-                <li>Corrección de información errónea</li>
-                <li>Eliminación de tus datos personales</li>
-            </ul>
-
-            <div class="contact-info">
-                <h2>5. Contacto</h2>
-                <p>Para ejercer tus derechos:<br>
-                Email: privacidad@aurachilerp.cl<br>
-                Discord: Abrir ticket en #soporte</p>
-            </div>
-
-            <div class="legal-footer">
-                <p>© 2024 Aura Chile RP - Servidor de Roleplay en FiveM</p>
-                <p>Este servicio no está afiliado a Rockstar Games, Take-Two Interactive o CitizenFX Collective.</p>
-                <p>Todos los derechos de Grand Theft Auto V pertenecen a sus respectivos dueños.</p>
-            </div>
+        <div class="legal-footer">
+            <p>© 2024 Aura Chile RP - Servidor de Roleplay en FiveM</p>
+            <p>Consulte también nuestros <a href="terms-of-service.html">Términos de Servicio</a> y <a href="donation-terms.html">Términos de Donación</a>.</p>
         </div>
     </div>
 </body>
