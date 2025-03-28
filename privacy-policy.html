@@ -168,7 +168,7 @@
             text-decoration: underline;
         }
         
-        ul {
+        ul, ol {
             padding-left: 20px;
         }
         
@@ -178,11 +178,23 @@
             padding-left: 15px;
         }
         
-        li:before {
+        ul li::before {
             content: "•";
             color: var(--accent);
             position: absolute;
             left: 0;
+        }
+        
+        ol {
+            list-style-type: decimal;
+        }
+        
+        ol li {
+            padding-left: 5px;
+        }
+        
+        ol li::before {
+            content: none;
         }
         
         .date {
@@ -231,6 +243,69 @@
             
             h2 {
                 font-size: 1.4rem;
+            }
+        }
+
+        /* Estilos para la sección de comunidad */
+        .community-section {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid var(--primary-light);
+        }
+
+        .community-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .community-links ul, .connect-server ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .community-links li, .connect-server li {
+            margin-bottom: 15px;
+            padding-left: 0;
+        }
+
+        .community-links li::before, .connect-server li::before {
+            content: none;
+        }
+
+        .community-links a, .connect-server a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 12px 20px;
+            background-color: var(--card);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--primary-light);
+        }
+
+        .community-links a:hover, .connect-server a:hover {
+            background-color: var(--highlight-bg);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .community-icon {
+            width: 24px;
+            height: 24px;
+        }
+
+        .link-text {
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .community-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -300,6 +375,47 @@
             <p>Para preguntas sobre privacidad:<br>
             Email: privacidad@aurachilerp.cl<br>
             Discord: chaotic.n</p>
+        </div>
+
+        <!-- Sección de Comunidad -->
+        <div class="community-section">
+            <h2>Comunidad</h2>
+            <div class="community-grid">
+                <div class="community-links">
+                    <h3>Nuestras redes</h3>
+                    <ul>
+                        <li>
+                            <a href="https://discord.gg/aurachilerp" target="_blank">
+                                <img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" alt="Discord" class="community-icon">
+                                <span class="link-text">Únete a nuestro Discord</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.tiktok.com/@aurachilerp" target="_blank">
+                                <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="TikTok" class="community-icon">
+                                <span class="link-text">Síguenos en TikTok</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:soporte@aurachilerp.cl">
+                                <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email" class="community-icon">
+                                <span class="link-text">Contáctanos por correo</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="connect-server">
+                    <h3>Juega con nosotros</h3>
+                    <ul>
+                        <li>
+                            <a href="https://cfx.re/join/9365ze" target="_blank">
+                                <img src="https://cdn-icons-png.flaticon.com/512/3098/3098090.png" alt="FiveM" class="community-icon">
+                                <span class="link-text">Conéctate a nuestro servidor</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
 
         <div class="legal-footer">
