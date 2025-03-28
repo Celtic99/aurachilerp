@@ -4,19 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Términos de Servicio - Aura Chile RP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #747059;
             --secondary: #5d6d7e;
             --accent: #A29BFE;
-            --background: #F5F6FA;
             --text: #2D3436;
+            --text-light: #636E72;
+            --bg: #F5F6FA;
             --card: #FFFFFF;
-            --border: rgba(116, 112, 89, 0.1);
-            --highlight-bg: rgba(116, 112, 89, 0.08);
-            --warning: #FD79A8;
-            --header-overlay: rgba(0,0,0,0.7);
-            --header-text: #FFFFFF;
+            --highlight-bg: rgba(108, 92, 231, 0.08);
+            --highlight-border: #6C5CE7;
+            --warning-bg: #FFF3E0;
+            --warning-border: #FFB74D;
         }
 
         @media (prefers-color-scheme: dark) {
@@ -24,26 +25,28 @@
                 --primary: #A29BFE;
                 --secondary: #6C5CE7;
                 --accent: #FF9FF3;
-                --background: #1A1A1A;
                 --text: #F5F6FA;
+                --text-light: #B2BEC3;
+                --bg: #1A1A1A;
                 --card: #2D3436;
-                --border: rgba(255, 255, 255, 0.1);
                 --highlight-bg: rgba(162, 155, 254, 0.15);
-                --header-overlay: rgba(0,0,0,0.85);
-                --header-text: #F5F6FA;
+                --highlight-border: #A29BFE;
+                --warning-bg: #424242;
+                --warning-border: #FFB74D;
             }
         }
-
+        
         body {
-            font-family: 'Poppins', system-ui, sans-serif;
+            font-family: 'Poppins', sans-serif;
             line-height: 1.8;
             margin: 0;
             padding: 0;
-            background-color: var(--background);
+            background-color: var(--bg);
             color: var(--text);
-            transition: background-color 0.5s ease, color 0.5s ease;
+            background-image: radial-gradient(circle at 10% 20%, rgba(168, 168, 255, 0.05) 0%, rgba(168, 168, 255, 0.05) 90%);
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
-
+        
         .nav-container {
             background: var(--card);
             padding: 1rem;
@@ -51,90 +54,60 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            border-bottom: 1px solid var(--border);
         }
-
+        
         .nav {
             max-width: 800px;
             margin: 0 auto;
             display: flex;
             gap: 1.5rem;
-            flex-wrap: wrap;
             justify-content: center;
+            flex-wrap: wrap;
         }
-
+        
         .nav a {
             color: var(--primary);
             text-decoration: none;
             font-weight: 500;
-            transition: all 0.3s ease;
             padding: 0.5rem 1rem;
             border-radius: 6px;
+            transition: all 0.3s ease;
         }
-
+        
         .nav a:hover {
             color: var(--accent);
             background: var(--highlight-bg);
         }
-
-        .header {
-            background: linear-gradient(var(--header-overlay), var(--header-overlay)), 
-                        url('https://i.redd.it/efv4uxhtk0yd1.png') center/cover;
-            height: 250px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 40px;
-            position: relative;
-            text-align: center;
-        }
-
-        .header h1 {
-            color: var(--header-text);
-            font-size: 2.5rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-            padding: 0 20px;
-        }
-
-        .header::after {
-            content: "FiveM Aura Chile RP";
-            position: absolute;
-            bottom: 15px;
-            right: 20px;
-            color: var(--header-text);
-            font-size: 1rem;
-            opacity: 0.8;
-        }
-
+        
         .container {
             max-width: 800px;
-            margin: 0 auto 40px;
+            margin: 40px auto;
             padding: 0 20px;
         }
-
-        .section {
-            background: var(--card);
-            border-radius: 12px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border: 1px solid var(--border);
-            transition: all 0.5s ease;
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 1px solid rgba(108, 92, 231, 0.2);
+            padding-bottom: 20px;
         }
-
-        h1, h2, h3 {
+        
+        h1 {
             color: var(--primary);
-            transition: color 0.5s ease;
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 2.2rem;
         }
-
+        
         h2 {
+            color: var(--primary);
             font-weight: 500;
             margin-top: 35px;
             font-size: 1.5rem;
             position: relative;
             padding-left: 15px;
         }
-
+        
         h2:before {
             content: "";
             position: absolute;
@@ -144,104 +117,90 @@
             width: 5px;
             background: var(--accent);
             border-radius: 3px;
-            transition: background 0.5s ease;
         }
-
-        p, li {
+        
+        p {
+            margin: 15px 0;
             color: var(--text);
-            transition: color 0.5s ease;
         }
-
+        
         .highlight {
             background-color: var(--highlight-bg);
             padding: 20px;
             border-radius: 10px;
             margin: 25px 0;
-            border-left: 4px solid var(--primary);
-            transition: all 0.5s ease;
+            border-left: 4px solid var(--highlight-border);
         }
-
+        
         .warning {
-            background-color: rgba(253, 121, 168, 0.1);
-            border-left-color: var(--warning);
+            background-color: var(--warning-bg);
+            border-left: 4px solid var(--warning-border);
         }
-
+        
         a {
             color: var(--primary);
             text-decoration: none;
             font-weight: 500;
             transition: all 0.3s ease;
         }
-
+        
         a:hover {
             color: var(--accent);
             text-decoration: underline;
         }
-
+        
         ul {
             padding-left: 20px;
         }
-
+        
         li {
             margin-bottom: 10px;
             position: relative;
             padding-left: 15px;
         }
-
+        
         li:before {
             content: "•";
             color: var(--accent);
             position: absolute;
             left: 0;
-            transition: color 0.5s ease;
         }
-
+        
         .date {
             color: var(--secondary);
             font-size: 0.9rem;
             font-weight: 400;
-            transition: color 0.5s ease;
         }
-
+        
         .contact-info {
             background: rgba(253, 121, 168, 0.1);
             padding: 15px;
             border-radius: 10px;
             margin-top: 20px;
         }
-
-        .disclaimer {
-            background: rgba(255, 227, 160, 0.2);
-            padding: 15px;
-            border-radius: 8px;
-            border-left: 4px solid #FFB74D;
-            margin-bottom: 30px;
-        }
-
+        
         .legal-footer {
             margin-top: 40px;
             padding-top: 20px;
-            border-top: 1px solid var(--border);
+            border-top: 1px solid rgba(108, 92, 231, 0.2);
             text-align: center;
             font-size: 0.9rem;
             color: var(--secondary);
         }
-
+        
         @media (max-width: 768px) {
             .container {
+                margin: 20px;
                 padding: 0 15px;
             }
             
-            .header {
-                height: 200px;
-            }
-            
-            .header h1 {
+            h1 {
                 font-size: 1.8rem;
             }
-
-            .section {
-                padding: 20px;
+            
+            .nav {
+                gap: 1rem;
+                padding: 0.5rem;
             }
         }
     </style>
@@ -255,74 +214,68 @@
         </div>
     </nav>
 
-    <div class="header">
-        <h1>Términos de Servicio de Aura Chile RP</h1>
-    </div>
-    
     <div class="container">
-        <div class="section">
-            <div class="disclaimer">
-                <h2>⚠️ Aviso Importante</h2>
-                <p>Estos términos aplican exclusivamente al servidor de FiveM "Aura Chile RP". Todo contenido aquí descrito está relacionado con la experiencia de juego dentro de nuestra plataforma y no tiene asociación con Rockstar Games o FiveM.</p>
-            </div>
-
+        <header>
+            <h1>Términos de Servicio de Aura Chile RP</h1>
             <p class="date">Última actualización: 24/03/2025</p>
+        </header>
 
-            <h2>1. Aceptación de los Términos</h2>
-            <p>Al utilizar el servidor de FiveM "Aura Chile RP" (en adelante, "el Servidor"), usted acepta cumplir con estos Términos de Servicio y todas las políticas incorporadas por referencia.</p>
+        <div class="highlight">
+            <p><strong>FiveM Aura Chile RP</strong> es un servidor de roleplay en la plataforma FiveM. Al acceder a nuestro servidor, aceptas cumplir con estos términos de servicio.</p>
+        </div>
 
-            <h2>2. Descripción del Servicio</h2>
-            <p>El Servidor proporciona las siguientes funcionalidades:</p>
+        <h2>1. Aceptación de los Términos</h2>
+        <p>Al utilizar el servidor de FiveM "Aura Chile RP" (en adelante, "el Servidor"), usted acepta cumplir con estos Términos de Servicio y todas las políticas incorporadas por referencia.</p>
+
+        <h2>2. Descripción del Servicio</h2>
+        <p>El Servidor proporciona las siguientes funcionalidades:</p>
+        <ul>
+            <li>Experiencia de roleplay (RP) en el universo de Grand Theft Auto V</li>
+            <li>Sistema de tickets de soporte</li>
+            <li>Registro y moderación de mensajes</li>
+            <li>Herramientas administrativas para staff</li>
+            <li>Gestión de roles y permisos</li>
+            <li>Sistema económico virtual</li>
+        </ul>
+
+        <div class="highlight warning">
+            <h2>3. Limitación de Responsabilidad</h2>
+            <p>El equipo de Aura Chile RP no se hace responsable por:</p>
             <ul>
-                <li>Experiencia de roleplay (RP) en el universo de Grand Theft Auto V</li>
-                <li>Sistema de economía virtual</li>
-                <li>Interacciones de juego realistas</li>
-                <li>Sistema de facciones y trabajos</li>
-                <li>Eventos especiales y actividades comunitarias</li>
+                <li>Interrupciones temporales del servicio</li>
+                <li>Uso indebido por parte de usuarios</li>
+                <li>Consecuencias de modificaciones no autorizadas</li>
+                <li>Pérdida de items o progreso virtual debido a bugs o fallos técnicos</li>
+                <li>Contenido generado por otros usuarios</li>
             </ul>
+        </div>
 
-            <div class="highlight warning">
-                <h2>3. Limitación de Responsabilidad</h2>
-                <p>El equipo de Aura Chile RP no se hace responsable por:</p>
-                <ul>
-                    <li>Interrupciones temporales del servicio</li>
-                    <li>Pérdida de progreso o items virtuales</li>
-                    <li>Contenido generado por otros usuarios</li>
-                    <li>Modificaciones en las mecánicas de juego</li>
-                </ul>
-            </div>
+        <h2>4. Conducta en el Servidor</h2>
+        <p>Los usuarios deben:</p>
+        <ul>
+            <li>Mantener siempre el roleplay</li>
+            <li>Respetar a todos los jugadores</li>
+            <li>Seguir las normas específicas de cada facción</li>
+            <li>No utilizar hacks o ventajas injustas</li>
+            <li>Reportar bugs mediante los canales oficiales</li>
+        </ul>
 
-            <h2>4. Conducta en el Servidor</h2>
-            <p>Los usuarios deben:</p>
-            <ul>
-                <li>Mantener siempre el roleplay</li>
-                <li>Respetar a todos los jugadores</li>
-                <li>Seguir las normas específicas de cada facción</li>
-                <li>No utilizar hacks o ventajas injustas</li>
-                <li>Reportar bugs mediante los canales oficiales</li>
-            </ul>
+        <div class="highlight">
+            <h2>5. Modificaciones a los Términos</h2>
+            <p>Nos reservamos el derecho de modificar estos Términos en cualquier momento. Las versiones actualizadas entrarán en vigor inmediatamente después de su publicación.</p>
+        </div>
 
-            <div class="highlight">
-                <h2>5. Sanciones</h2>
-                <p>El incumplimiento de estas normas puede resultar en:</p>
-                <ul>
-                    <li>Amonestaciones verbales</li>
-                    <li>Suspensiones temporales</li>
-                    <li>Baneos permanentes</li>
-                    <li>Pérdida de items o progreso</li>
-                </ul>
-            </div>
-
+        <div class="contact-info">
             <h2>6. Contacto</h2>
             <p>Para consultas sobre estos términos:<br>
             Email: soporte@aurachilerp.cl<br>
             Discord: chaotic.n</p>
+        </div>
 
-            <div class="legal-footer">
-                <p>© 2024 Aura Chile RP - Servidor de Roleplay en FiveM</p>
-                <p>Este servicio no está afiliado a Rockstar Games, Take-Two Interactive o CitizenFX Collective.</p>
-                <p>Todos los derechos de Grand Theft Auto V pertenecen a sus respectivos dueños.</p>
-            </div>
+        <div class="legal-footer">
+            <p>© 2025 Aura Chile RP - Servidor de Roleplay en FiveM</p>
+            <p>Este servicio no está afiliado a Rockstar Games, Take-Two Interactive o CitizenFX Collective.</p>
+            <p>Todos los derechos de Grand Theft Auto V pertenecen a sus respectivos dueños.</p>
         </div>
     </div>
 </body>
