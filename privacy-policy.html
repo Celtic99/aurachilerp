@@ -62,29 +62,49 @@
             z-index: 100;
         }
         
-        .nav {
+        .nav-content {
             max-width: 900px;
             margin: 0 auto;
             display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
         }
         
-        .nav a {
+        .brand-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .nav-logo {
+            height: 40px;
+            width: auto;
+        }
+        
+        .brand-text {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 1.3rem;
+            white-space: nowrap;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .nav-link {
             color: var(--primary);
             text-decoration: none;
             font-weight: 500;
-            padding: 0.5rem 1.2rem;
+            padding: 0.5rem 1rem;
             border-radius: var(--border-radius);
             transition: all 0.3s ease;
-            border: 1px solid var(--primary-light);
         }
         
-        .nav a:hover, .nav a.active {
-            color: var(--card);
-            background: var(--primary);
-            transform: translateY(-2px);
+        .nav-link:hover, .nav-link.active {
+            color: var(--accent);
+            background-color: var(--highlight-bg);
         }
         
         .container {
@@ -117,13 +137,6 @@
             border-bottom: 1px solid var(--primary-light);
         }
         
-        h3 {
-            color: var(--secondary);
-            font-weight: 500;
-            margin-top: 30px;
-            font-size: 1.3rem;
-        }
-        
         p {
             margin: 20px 0;
             color: var(--text);
@@ -132,11 +145,10 @@
         
         .highlight {
             background-color: var(--highlight-bg);
-            padding: 25px;
-            border-radius: var(--border-radius);
-            margin: 30px 0;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 25px 0;
             border-left: 4px solid var(--highlight-border);
-            box-shadow: var(--shadow);
         }
         
         .warning {
@@ -156,84 +168,85 @@
             text-decoration: underline;
         }
         
-        ul, ol {
-            padding-left: 25px;
-            margin: 20px 0;
+        ul {
+            padding-left: 20px;
         }
         
         li {
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             position: relative;
-            padding-left: 5px;
+            padding-left: 15px;
+        }
+        
+        li:before {
+            content: "•";
+            color: var(--accent);
+            position: absolute;
+            left: 0;
         }
         
         .date {
             color: var(--secondary);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 400;
-            font-style: italic;
         }
         
         .contact-info {
-            background-color: var(--highlight-bg);
-            padding: 20px;
-            border-radius: var(--border-radius);
-            margin-top: 30px;
-            box-shadow: var(--shadow);
+            background: rgba(253, 121, 168, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
         }
         
         .legal-footer {
-            margin-top: 50px;
+            margin-top: 40px;
             padding-top: 20px;
-            border-top: 1px solid var(--primary-light);
+            border-top: 1px solid rgba(108, 92, 231, 0.2);
             text-align: center;
             font-size: 0.9rem;
             color: var(--secondary);
         }
         
-        .badge {
-            display: inline-block;
-            background-color: var(--primary);
-            color: var(--card);
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            margin-left: 8px;
-            font-weight: 500;
-        }
-        
         @media (max-width: 768px) {
             .container {
-                margin: 20px auto;
-                padding: 0 20px;
+                margin: 20px;
+                padding: 0 15px;
+            }
+            
+            .nav-content {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+            
+            .nav-links {
+                width: 100%;
+                justify-content: space-around;
+                flex-wrap: wrap;
             }
             
             h1 {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
             
             h2 {
                 font-size: 1.4rem;
-            }
-            
-            .nav {
-                gap: 0.8rem;
-                padding: 0.5rem;
-            }
-            
-            .nav a {
-                padding: 0.4rem 0.8rem;
-                font-size: 0.9rem;
             }
         }
     </style>
 </head>
 <body>
     <nav class="nav-container">
-        <div class="nav">
-            <a href="terms-of-service.html">Términos de Servicio</a>
-            <a href="privacy-policy.html" class="active">Política de Privacidad</a>
-            <a href="donation-terms.html">Términos de Donación</a>
+        <div class="nav-content">
+            <div class="brand-wrapper">
+                <img src="assets/image.png" alt="Logo Aura Chile RP" class="nav-logo">
+                <span class="brand-text">Aura Chile Roleplay</span>
+            </div>
+            <div class="nav-links">
+                <a href="terms-of-service.html" class="nav-link">Términos</a>
+                <a href="privacy-policy.html" class="nav-link active">Privacidad</a>
+                <a href="donation-terms.html" class="nav-link">Donaciones</a>
+            </div>
         </div>
     </nav>
 
@@ -244,107 +257,50 @@
         </header>
 
         <div class="highlight">
-            <p>Esta política de privacidad explica cómo <strong>Aura Chile RP</strong> recopila, utiliza y protege la información de los usuarios en nuestro servidor FiveM y servicios relacionados. Su privacidad es importante para nosotros y nos comprometemos a proteger sus datos personales.</p>
+            <p>Esta política de privacidad explica cómo <strong>Aura Chile RP</strong> recopila y utiliza la información de los jugadores en nuestro servidor FiveM.</p>
         </div>
 
         <h2>1. Información que Recopilamos</h2>
-        <p>Para proporcionar nuestros servicios, recopilamos y procesamos los siguientes tipos de información:</p>
+        <p>El servidor recopila y almacena los siguientes datos exclusivamente para FiveM:</p>
         <ul>
-            <li><strong>Identificadores únicos</strong> - Incluyendo pero no limitado a: Rockstar ID, FiveM identifiers, Discord ID</li>
-            <li><strong>Datos de juego</strong> - Niveles, progreso, inventarios, registros de transacciones económicas</li>
-            <li><strong>Interacciones sociales</strong> - Mensajes en el chat, reportes, tickets de soporte</li>
-            <li><strong>Datos técnicos</strong> - Dirección IP, tipo de dispositivo, registros de conexión</li>
-            <li><strong>Información de donaciones</strong> - Historial de transacciones, monto, fecha (si aplica)</li>
+            <li><strong>IDs de usuario</strong> - Para identificación única de jugadores</li>
+            <li><strong>Contenido de tickets</strong> - Incluyendo mensajes y reportes</li>
+            <li><strong>Registros de moderación</strong> - Acciones realizadas por el staff</li>
+            <li><strong>Datos de personajes</strong> - Nombres, inventarios y progreso</li>
+            <li><strong>Métricas de uso</strong> - Sin información personal identificable</li>
         </ul>
 
-        <h2>2. Finalidades del Tratamiento</h2>
-        <p>Utilizamos sus datos personales para las siguientes finalidades:</p>
+        <h2>2. Cómo Usamos su Información</h2>
         <ul>
-            <li>Proveer y mantener nuestros servicios de juego</li>
-            <li>Garantizar la seguridad y prevenir el fraude</li>
-            <li>Moderar la comunidad y hacer cumplir las normas</li>
-            <li>Mejorar y personalizar la experiencia del usuario</li>
-            <li>Cumplir con obligaciones legales</li>
-            <li>Procesar donaciones y otorgar beneficios</li>
+            <li>Proveer y mejorar los servicios del servidor</li>
+            <li>Resolver disputas y aplicar normas de la comunidad</li>
+            <li>Mantener registros de transacciones virtuales</li>
+            <li>Prevenir actividades fraudulentas o cheat</li>
         </ul>
 
         <div class="highlight">
-            <h2>3. Bases Legales para el Tratamiento</h2>
-            <p>Nuestro tratamiento de datos se basa en las siguientes bases legales:</p>
+            <h2>3. Compartición de Datos</h2>
+            <p>No vendemos ni compartimos sus datos personales con terceros, excepto:</p>
             <ul>
-                <li><strong>Consentimiento</strong> - Cuando usted acepta explícitamente el tratamiento</li>
-                <li><strong>Ejecución de contrato</strong> - Para proporcionar los servicios solicitados</li>
-                <li><strong>Interés legítimo</strong> - Para mejorar nuestros servicios y prevenir abusos</li>
-                <li><strong>Cumplimiento legal</strong> - Cuando sea requerido por leyes aplicables</li>
+                <li>Cuando sea requerido por ley chilena</li>
+                <li>Para proteger derechos o seguridad de la comunidad</li>
+                <li>Con proveedores de servicios esenciales (ej: hosting)</li>
             </ul>
         </div>
 
-        <h2>4. Compartición de Datos</h2>
-        <p>Podemos compartir información limitada con:</p>
+        <h2>4. Almacenamiento y Seguridad</h2>
         <ul>
-            <li><strong>Proveedores de servicios</strong> - Hosting, pagos, análisis (solo datos necesarios)</li>
-            <li><strong>Autoridades</strong> - Cuando sea requerido por ley chilena</li>
-            <li><strong>Nuevos propietarios</strong> - En caso de transferencia del servidor</li>
+            <li>Datos almacenados por máximo 6 meses</li>
+            <li>Protegidos con cifrado AES-256</li>
+            <li>Acceso restringido al equipo administrativo</li>
         </ul>
-        <p>No vendemos ni comercializamos sus datos personales.</p>
-
-        <h2>5. Transferencias Internacionales</h2>
-        <p>Algunos proveedores pueden estar ubicados fuera de Chile. En estos casos, garantizamos que:</p>
-        <ul>
-            <li>Se aplican cláusulas contractuales estándar</li>
-            <li>El país receptor ofrece nivel adecuado de protección</li>
-            <li>Solo se transfieren los datos estrictamente necesarios</li>
-        </ul>
-
-        <h2>6. Conservación de Datos</h2>
-        <p>Conservaremos sus datos personales únicamente durante el tiempo necesario:</p>
-        <ul>
-            <li><strong>Datos de juego</strong> - 6 meses después de su última conexión</li>
-            <li><strong>Registros de moderación</strong> - 1 año para sanciones temporales, indefinido para baneos permanentes</li>
-            <li><strong>Datos financieros</strong> - 5 años para cumplir con obligaciones legales</li>
-            <li><strong>Backups</strong> - Máximo 3 meses antes de eliminación definitiva</li>
-        </ul>
-
-        <div class="highlight warning">
-            <h2>7. Seguridad de los Datos</h2>
-            <p>Implementamos medidas técnicas y organizativas adecuadas para proteger sus datos:</p>
-            <ul>
-                <li>Cifrado AES-256 para datos sensibles</li>
-                <li>Acceso restringido basado en roles</li>
-                <li>Autenticación de dos factores para administradores</li>
-                <li>Revisiones periódicas de seguridad</li>
-                <li>Protocolos para manejo de incidentes</li>
-            </ul>
-        </div>
-
-        <h2>8. Sus Derechos</h2>
-        <p>De acuerdo con la Ley N° 19.628 sobre Protección de Datos Personales, usted tiene derecho a:</p>
-        <ul>
-            <li><strong>Acceso</strong> - Solicitar copia de sus datos personales</li>
-            <li><strong>Rectificación</strong> - Corregir información inexacta</li>
-            <li><strong>Eliminación</strong> - Pedir que borremos sus datos (con limitaciones)</li>
-            <li><strong>Limitación</strong> - Restringir el tratamiento en ciertos casos</li>
-            <li><strong>Oposición</strong> - Oponerse al tratamiento basado en interés legítimo</li>
-            <li><strong>Portabilidad</strong> - Recibir sus datos en formato estructurado</li>
-        </ul>
-        <p>Para ejercer estos derechos, contacte a nuestro Delegado de Protección de Datos.</p>
 
         <div class="contact-info">
-            <h2>9. Contacto y Delegado de Protección de Datos</h2>
-            <p>Para cualquier consulta sobre privacidad o para ejercer sus derechos:<br>
-            <strong>Email:</strong> privacidad@aurachilerp.cl<br>
-            <strong>Discord:</strong> chaotic.n<br>
-            <strong>Plazo de respuesta:</strong> 15 días hábiles</p>
+            <h2>5. Contacto</h2>
+            <p>Para preguntas sobre privacidad:<br>
+            Email: privacidad@aurachilerp.cl<br>
+            Discord: chaotic.n</p>
         </div>
-
-        <h2>10. Cambios en esta Política</h2>
-        <p>Podemos actualizar esta política periódicamente. Le notificaremos sobre cambios importantes mediante:</p>
-        <ul>
-            <li>Anuncios en nuestro servidor Discord</li>
-            <li>Mensaje al iniciar sesión en el servidor</li>
-            <li>Actualización de la fecha en esta página</li>
-        </ul>
-        <p>El uso continuado de nuestros servicios después de los cambios constituirá aceptación de los mismos.</p>
 
         <div class="legal-footer">
             <p>© 2024-2025 Aura Chile RP - Servidor de Roleplay en FiveM</p>
