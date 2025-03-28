@@ -178,7 +178,7 @@
             padding-left: 15px;
         }
         
-        li:before {
+        li::before {
             content: "•";
             color: var(--accent);
             position: absolute;
@@ -284,6 +284,59 @@
         .money {
             font-weight: 600;
             color: #27ae60;
+        }
+
+        /* Estilos para la sección de comunidad */
+        .community-section {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid var(--primary-light);
+        }
+
+        .community-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .community-links ul, .connect-server ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .community-links li, .connect-server li {
+            margin-bottom: 15px;
+            padding-left: 0;
+        }
+
+        .community-links li::before, .connect-server li::before {
+            content: none;
+        }
+
+        .community-links a, .connect-server a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .community-links a:hover, .connect-server a:hover {
+            color: var(--secondary-light);
+            text-decoration: underline;
+        }
+
+        .community-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .community-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -406,6 +459,45 @@
             <p>Para problemas con donaciones:<br>
             Email: donaciones@aurachilerp.cl<br>
             Discord: Abrir ticket en #soporte-donaciones</p>
+        </div>
+
+        <!-- Sección de Comunidad -->
+        <div class="community-section">
+            <h2>Comunidad</h2>
+            <div class="community-grid">
+                <div class="community-links">
+                    <ul>
+                        <li>
+                            <a href="https://discord.gg/aurachilerp" target="_blank">
+                                <img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" alt="Discord" class="community-icon">
+                                Discord: https://discord.gg/aurachilerp
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.tiktok.com/@aurachilerp" target="_blank">
+                                <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="TikTok" class="community-icon">
+                                TikTok: https://www.tiktok.com/@aurachilerp
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:soporte@aurachilerp.cl">
+                                <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email" class="community-icon">
+                                Correo: soporte@aurachilerp.cl
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="connect-server">
+                    <ul>
+                        <li>
+                            <a href="https://cfx.re/join/9365ze" target="_blank">
+                                <img src="https://cdn-icons-png.flaticon.com/512/3098/3098090.png" alt="FiveM" class="community-icon">
+                                Conéctate a nuestro servidor de FIVEM: https://cfx.re/join/9365ze
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
 
         <div class="legal-footer">
