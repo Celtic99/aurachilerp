@@ -5,34 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Términos de Donación - Aura Chile RP</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
+    <style>
         :root {
             --primary: #747059;
+            --primary-light: #a8a58b;
             --secondary: #5d6d7e;
-            --accent: #A29BFE;
-            --text: #2D3436;
-            --text-light: #636E72;
-            --bg: #F5F6FA;
-            --card: #FFFFFF;
-            --highlight-bg: rgba(108, 92, 231, 0.08);
-            --highlight-border: #6C5CE7;
-            --warning-bg: #FFF3E0;
-            --warning-border: #FFB74D;
+            --secondary-light: #8d9eb0;
+            --accent: #5d6d7e;
+            --text: #2c3e50;
+            --text-light: #636e72;
+            --bg: #f8f9fa;
+            --card: #ffffff;
+            --highlight-bg: #e8f4f8;
+            --highlight-border: #5d6d7e;
+            --warning-bg: #fff3e0;
+            --warning-border: #ffb74d;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --gold: #ffd700;
+            --diamond: #b9f2ff;
+            --aura: #9b59b6;
         }
 
         @media (prefers-color-scheme: dark) {
             :root {
-                --primary: #A29BFE;
-                --secondary: #6C5CE7;
-                --accent: #FF9FF3;
-                --text: #F5F6FA;
-                --text-light: #B2BEC3;
-                --bg: #1A1A1A;
-                --card: #2D3436;
-                --highlight-bg: rgba(162, 155, 254, 0.15);
-                --highlight-border: #A29BFE;
+                --primary: #a8a58b;
+                --primary-light: #d1ceb5;
+                --secondary: #8d9eb0;
+                --secondary-light: #b2c1d1;
+                --accent: #8d9eb0;
+                --text: #ecf0f1;
+                --text-light: #bdc3c7;
+                --bg: #1a1a1a;
+                --card: #2d3436;
+                --highlight-bg: #2c3e50;
+                --highlight-border: #5d6d7e;
                 --warning-bg: #424242;
-                --warning-border: #FFB74D;
+                --warning-border: #ffb74d;
+                --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+                --gold: #ffd700;
+                --diamond: #b9f2ff;
+                --aura: #9b59b6;
             }
         }
         
@@ -43,24 +56,23 @@
             padding: 0;
             background-color: var(--bg);
             color: var(--text);
-            background-image: radial-gradient(circle at 10% 20%, rgba(168, 168, 255, 0.05) 0%, rgba(168, 168, 255, 0.05) 90%);
             transition: background-color 0.3s ease, color 0.3s ease;
         }
         
         .nav-container {
             background: var(--card);
             padding: 1rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: var(--shadow);
             position: sticky;
             top: 0;
             z-index: 100;
         }
         
         .nav {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             display: flex;
-            gap: 1.5rem;
+            gap: 1rem;
             justify-content: center;
             flex-wrap: wrap;
         }
@@ -69,67 +81,68 @@
             color: var(--primary);
             text-decoration: none;
             font-weight: 500;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
+            padding: 0.5rem 1.2rem;
+            border-radius: var(--border-radius);
             transition: all 0.3s ease;
+            border: 1px solid var(--primary-light);
         }
         
-        .nav a:hover {
-            color: var(--accent);
-            background: var(--highlight-bg);
+        .nav a:hover, .nav a.active {
+            color: var(--card);
+            background: var(--primary);
+            transform: translateY(-2px);
         }
         
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 40px auto;
-            padding: 0 20px;
+            padding: 0 30px;
         }
         
         header {
             text-align: center;
             margin-bottom: 40px;
-            border-bottom: 1px solid rgba(108, 92, 231, 0.2);
             padding-bottom: 20px;
+            border-bottom: 1px solid var(--primary-light);
         }
         
         h1 {
             color: var(--primary);
             font-weight: 600;
             margin-bottom: 10px;
-            font-size: 2.2rem;
+            font-size: 2.4rem;
         }
         
         h2 {
             color: var(--primary);
             font-weight: 500;
-            margin-top: 35px;
-            font-size: 1.5rem;
+            margin-top: 40px;
+            font-size: 1.6rem;
             position: relative;
-            padding-left: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--primary-light);
         }
         
-        h2:before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 5px;
-            height: 20px;
-            width: 5px;
-            background: var(--accent);
-            border-radius: 3px;
+        h3 {
+            color: var(--secondary);
+            font-weight: 500;
+            margin-top: 30px;
+            font-size: 1.3rem;
         }
         
         p {
-            margin: 15px 0;
+            margin: 20px 0;
             color: var(--text);
+            font-size: 1.05rem;
         }
         
         .highlight {
             background-color: var(--highlight-bg);
-            padding: 20px;
-            border-radius: 10px;
-            margin: 25px 0;
+            padding: 25px;
+            border-radius: var(--border-radius);
+            margin: 30px 0;
             border-left: 4px solid var(--highlight-border);
+            box-shadow: var(--shadow);
         }
         
         .warning {
@@ -138,69 +151,145 @@
         }
         
         a {
-            color: var(--primary);
+            color: var(--secondary);
             text-decoration: none;
             font-weight: 500;
             transition: all 0.3s ease;
         }
         
         a:hover {
-            color: var(--accent);
+            color: var(--secondary-light);
             text-decoration: underline;
         }
         
-        ul {
-            padding-left: 20px;
+        ul, ol {
+            padding-left: 25px;
+            margin: 20px 0;
         }
         
         li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             position: relative;
-            padding-left: 15px;
-        }
-        
-        li:before {
-            content: "•";
-            color: var(--accent);
-            position: absolute;
-            left: 0;
+            padding-left: 5px;
         }
         
         .date {
             color: var(--secondary);
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             font-weight: 400;
+            font-style: italic;
         }
         
         .contact-info {
-            background: rgba(253, 121, 168, 0.1);
-            padding: 15px;
-            border-radius: 10px;
-            margin-top: 20px;
+            background-color: var(--highlight-bg);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            margin-top: 30px;
+            box-shadow: var(--shadow);
         }
         
         .legal-footer {
-            margin-top: 40px;
+            margin-top: 50px;
             padding-top: 20px;
-            border-top: 1px solid rgba(108, 92, 231, 0.2);
+            border-top: 1px solid var(--primary-light);
             text-align: center;
             font-size: 0.9rem;
             color: var(--secondary);
         }
         
+        .badge {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--card);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-left: 8px;
+            font-weight: 500;
+        }
+        
+        .donation-tier {
+            background-color: var(--card);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--primary-light);
+        }
+        
+        .tier-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .tier-name {
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+        
+        .tier-price {
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        
+        .gold {
+            color: var(--gold);
+            border: 1px solid var(--gold);
+        }
+        
+        .diamond {
+            color: var(--diamond);
+            border: 1px solid var(--diamond);
+        }
+        
+        .aura {
+            color: var(--aura);
+            border: 1px solid var(--aura);
+        }
+        
+        .donation-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+            margin: 20px 0;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--primary-light);
+        }
+        
+        .nitro-rewards {
+            background-color: var(--card);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: var(--shadow);
+            border-left: 4px solid #7289da;
+        }
+        
         @media (max-width: 768px) {
             .container {
-                margin: 20px;
-                padding: 0 15px;
+                margin: 20px auto;
+                padding: 0 20px;
             }
             
             h1 {
-                font-size: 1.8rem;
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.4rem;
             }
             
             .nav {
-                gap: 1rem;
+                gap: 0.8rem;
                 padding: 0.5rem;
+            }
+            
+            .nav a {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -210,7 +299,7 @@
         <div class="nav">
             <a href="terms-of-service.html">Términos de Servicio</a>
             <a href="privacy-policy.html">Política de Privacidad</a>
-            <a href="donation-terms.html">Términos de Donación</a>
+            <a href="donation-terms.html" class="active">Términos de Donación</a>
         </div>
     </nav>
 
@@ -221,48 +310,110 @@
         </header>
 
         <div class="highlight">
-            <p>Al realizar una donación al servidor FiveM <strong>Aura Chile RP</strong>, aceptas automáticamente estos términos y condiciones.</p>
+            <p>Al realizar una donación al servidor FiveM <strong>Aura Chile RP</strong>, aceptas automáticamente estos términos y condiciones en su totalidad. Las donaciones son voluntarias y no constituyen una compra con derechos contractuales.</p>
+            <img src="assets/image.png" alt="Recompensas de Donación Aura Chile RP" class="donation-image">
         </div>
 
-        <h2>1. Carácter de las Donaciones</h2>
-        <ul>
-            <li>Todas las donaciones son voluntarias y no reembolsables</li>
-            <li>Se realizan exclusivamente mediante tickets oficiales</li>
-            <li>No garantizan acceso permanente al servidor</li>
-            <li>Son contribuciones para el mantenimiento del servidor</li>
-        </ul>
-
-        <div class="highlight warning">
-            <h2>2. Beneficios Virtuales</h2>
-            <p>Las donaciones pueden otorgar:</p>
+        <h2>1. Paquetes de Donación Mastercard</h2>
+        
+        <div class="donation-tier">
+            <div class="tier-header">
+                <span class="tier-name gold">Mastercard Oro</span>
+                <span class="tier-price gold">10.000 :AuraBanco:</span>
+            </div>
             <ul>
-                <li>Vehículos exclusivos (solo visuales)</li>
-                <li>Ropas y accesorios especiales</li>
-                <li>Créditos para la economía del servidor</li>
-                <li>Acceso a áreas VIP (cosméticas)</li>
+                <li>2 Autos Categoría B</li>
+                <li>1 Descuento de 10.000.000 en tunning</li>
+                <li>10.000.000 :AuraBanco: en dinero</li>
+                <li>Reconocimiento de @Mastercard Oro en la plataforma de la ciudad por un mes</li>
             </ul>
-            <p><strong>Nota:</strong> Estos beneficios solo tienen valor dentro del servidor y pueden ser modificados.</p>
+        </div>
+        
+        <div class="donation-tier">
+            <div class="tier-header">
+                <span class="tier-name diamond">Mastercard Diamante</span>
+                <span class="tier-price diamond">20.000 :AuraBanco:</span>
+            </div>
+            <ul>
+                <li>3 Autos categoría A</li>
+                <li>1 Auto categoría B</li>
+                <li>1 Descuento de 10.000.000 en tunning</li>
+                <li>10.000.000 :AuraBanco: en dinero</li>
+                <li>Reconocimiento de @Mastercard Diamante en la plataforma de la ciudad por un mes</li>
+            </ul>
+        </div>
+        
+        <div class="donation-tier">
+            <div class="tier-header">
+                <span class="tier-name aura">Mastercard Aura</span>
+                <span class="tier-price aura">50.000 :AuraBanco:</span>
+            </div>
+            <ul>
+                <li>Arriendo de casa a elección (1 mes) - Cualquier tipo de casa con posibilidad de mapeo</li>
+                <li>1 Auto Categoría Aura</li>
+                <li>1 Helicóptero</li>
+                <li>3 Autos Categoría A</li>
+                <li>2 Autos Categoría B</li>
+                <li>2 Descuentos de 10.000.000 en tunning</li>
+                <li>25.000.000 :AuraBanco: en dinero</li>
+                <li>Reconocimiento de @Mastercard Aura en la plataforma de la ciudad por un mes</li>
+            </ul>
+        </div>
+
+        <div class="nitro-rewards">
+            <h2>2. Recompensas por Nitro en Discord</h2>
+            <p>Cada vez que realices una mejora a nuestro Discord Principal, esta contará para el progreso de las recompensas de nitro. Estas son acumulables y sólo se pueden canjear una vez por jugador.</p>
+            
+            <p><strong>Para canjear:</strong> Deberás abrir un ticket de donación en nuestro Discord.</p>
+            
+            <ul>
+                <li><strong>2 mejoras:</strong> 2.500.000 dinero IC</li>
+                <li><strong>4 mejoras:</strong> Vehículo Go Kart IC</li>
+                <li><strong>6 mejoras:</strong> Lancha pequeña</li>
+                <li><strong>8 mejoras:</strong> Vehículo Lamborghini Gallardo IC</li>
+            </ul>
         </div>
 
         <h2>3. Proceso de Donación</h2>
         <ol>
-            <li>Abrir ticket en el Discord oficial</li>
-            <li>Seleccionar el paquete deseado</li>
-            <li>Recibir instrucciones de pago</li>
-            <li>Confirmación por parte del staff</li>
-            <li>Entrega de beneficios en 24-48 horas</li>
+            <li>Abrir un ticket en el canal designado de nuestro Discord oficial</li>
+            <li>Seleccionar el paquete Mastercard o recompensa Nitro deseada</li>
+            <li>Recibir las instrucciones de pago personalizadas</li>
+            <li>Realizar el pago mediante los métodos aceptados</li>
+            <li>Enviar comprobante al staff mediante el ticket</li>
+            <li>Recibir confirmación y activación de beneficios en 24-48 horas</li>
         </ol>
 
+        <div class="highlight warning">
+            <h2>4. Política de Beneficios</h2>
+            <ul>
+                <li>Todos los beneficios son puramente virtuales y dentro del juego</li>
+                <li>Los vehículos y propiedades son digitales sin valor real</li>
+                <li>Nos reservamos el derecho de modificar beneficios en actualizaciones</li>
+                <li>El reconocimiento en la ciudad es por tiempo limitado</li>
+                <li>Los descuentos en tunning no son acumulables con otras promociones</li>
+            </ul>
+        </div>
+
+        <h2>5. Métodos de Pago Aceptados</h2>
+        <ul>
+            <li>Transferencia bancaria (Chile)</li>
+            <li>WebPay (Tarjetas de crédito/débito)</li>
+            <li>PayPal (Solo para montos superiores a $10.000 CLP)</li>
+            <li>Cryptomonedas (Consultar opciones disponibles)</li>
+        </ul>
+
         <div class="contact-info">
-            <h2>4. Contacto</h2>
-            <p>Para problemas con donaciones:<br>
-            Email: donaciones@aurachilerp.cl<br>
-            Discord: Abrir ticket en #soporte-donaciones</p>
+            <h2>6. Soporte y Contacto</h2>
+            <p>Para problemas con donaciones o beneficios:<br>
+            <strong>Email:</strong> donaciones@aurachilerp.cl<br>
+            <strong>Discord:</strong> Abrir ticket en #soporte-donaciones<br>
+            <strong>Horario de atención:</strong> Lunes a Viernes de 16:00 a 22:00 hrs (CLT)</p>
         </div>
 
         <div class="legal-footer">
-            <p>© 2024 Aura Chile RP - Servidor de Roleplay en FiveM</p>
-            <p>Las donaciones son contribuciones voluntarias sin contraprestación real.</p>
+            <p>© 2024-2025 Aura Chile RP - Servidor de Roleplay en FiveM</p>
+            <p>Las donaciones son contribuciones voluntarias sin contraprestación real. No constituyen compraventa.</p>
             <p>Consulte también nuestros <a href="terms-of-service.html">Términos de Servicio</a> y <a href="privacy-policy.html">Política de Privacidad</a>.</p>
         </div>
     </div>
