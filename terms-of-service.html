@@ -5,95 +5,325 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Términos de Servicio - Aura Chile RP</title>
     <style>
+        :root {
+            --primary: #747059;
+            --secondary: #5d6d7e;
+            --accent: #A29BFE;
+            --background: #F5F6FA;
+            --text: #2D3436;
+            --card: #FFFFFF;
+            --border: rgba(116, 112, 89, 0.1);
+            --highlight-bg: rgba(116, 112, 89, 0.08);
+            --warning: #FD79A8;
+            --header-overlay: rgba(0,0,0,0.7);
+            --header-text: #FFFFFF;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --primary: #A29BFE;
+                --secondary: #6C5CE7;
+                --accent: #FF9FF3;
+                --background: #1A1A1A;
+                --text: #F5F6FA;
+                --card: #2D3436;
+                --border: rgba(255, 255, 255, 0.1);
+                --highlight-bg: rgba(162, 155, 254, 0.15);
+                --header-overlay: rgba(0,0,0,0.85);
+                --header-text: #F5F6FA;
+            }
+        }
+
         body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            margin: 20px;
+            font-family: 'Poppins', system-ui, sans-serif;
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background);
+            color: var(--text);
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        .nav-container {
+            background: var(--card);
+            padding: 1rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav {
             max-width: 800px;
             margin: 0 auto;
-            padding: 20px;
-            background-color: #f8f9fa;
-            color: #2c3e50;
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
         }
-        h1 {
-            color: #747059;
-            border-bottom: 2px solid #747059;
-            padding-bottom: 10px;
+
+        .nav a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
         }
+
+        .nav a:hover {
+            color: var(--accent);
+            background: var(--highlight-bg);
+        }
+
+        .header {
+            background: linear-gradient(var(--header-overlay), var(--header-overlay)), 
+                        url('https://i.redd.it/efv4uxhtk0yd1.png') center/cover;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 40px;
+            position: relative;
+            text-align: center;
+        }
+
+        .header h1 {
+            color: var(--header-text);
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            padding: 0 20px;
+        }
+
+        .header::after {
+            content: "FiveM Aura Chile RP";
+            position: absolute;
+            bottom: 15px;
+            right: 20px;
+            color: var(--header-text);
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            padding: 0 20px;
+        }
+
+        .section {
+            background: var(--card);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+            transition: all 0.5s ease;
+        }
+
+        h1, h2, h3 {
+            color: var(--primary);
+            transition: color 0.5s ease;
+        }
+
         h2 {
-            color: #5d6d7e;
-            margin-top: 25px;
+            font-weight: 500;
+            margin-top: 35px;
+            font-size: 1.5rem;
+            position: relative;
+            padding-left: 15px;
         }
-        p {
-            margin: 15px 0;
+
+        h2:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 5px;
+            height: 20px;
+            width: 5px;
+            background: var(--accent);
+            border-radius: 3px;
+            transition: background 0.5s ease;
         }
+
+        p, li {
+            color: var(--text);
+            transition: color 0.5s ease;
+        }
+
         .highlight {
-            background-color: #fff3cd;
-            padding: 15px;
-            border-left: 4px solid #ffe082;
-            margin: 20px 0;
+            background-color: var(--highlight-bg);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 25px 0;
+            border-left: 4px solid var(--primary);
+            transition: all 0.5s ease;
         }
+
+        .warning {
+            background-color: rgba(253, 121, 168, 0.1);
+            border-left-color: var(--warning);
+        }
+
         a {
-            color: #747059;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--accent);
             text-decoration: underline;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        li:before {
+            content: "•";
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+            transition: color 0.5s ease;
+        }
+
+        .date {
+            color: var(--secondary);
+            font-size: 0.9rem;
+            font-weight: 400;
+            transition: color 0.5s ease;
+        }
+
+        .contact-info {
+            background: rgba(253, 121, 168, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .disclaimer {
+            background: rgba(255, 227, 160, 0.2);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #FFB74D;
+            margin-bottom: 30px;
+        }
+
+        .legal-footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--secondary);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .header {
+                height: 200px;
+            }
+            
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .section {
+                padding: 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>Términos de Servicio de Aura Chile RP</h1>
-    <p><em>Última actualización: 24/03/2025</em></p>
+    <nav class="nav-container">
+        <div class="nav">
+            <a href="terms-of-service.html">Términos de Servicio</a>
+            <a href="privacy-policy.html">Política de Privacidad</a>
+            <a href="donation-terms.html">Términos de Donación</a>
+        </div>
+    </nav>
 
-    <h2>1. Aceptación de los Términos</h2>
-    <p>Al utilizar el bot de Discord "Aura Chile RP" (en adelante, "el Bot"), usted acepta cumplir con estos Términos de Servicio y todas las políticas incorporadas por referencia.</p>
-
-    <h2>2. Descripción del Servicio</h2>
-    <p>El Bot proporciona las siguientes funcionalidades en servidores de Discord:</p>
-    <ul>
-        <li>Sistema de tickets de soporte</li>
-        <li>Registro y moderación de mensajes</li>
-        <li>Herramientas administrativas para staff</li>
-        <li>Integración con sistemas externos</li>
-        <li>Gestión de roles y permisos</li>
-    </ul>
-
-    <h2>3. Uso Apropiado</h2>
-    <p>Usted se compromete a:</p>
-    <ul>
-        <li>No utilizar el Bot para actividades ilegales o no autorizadas</li>
-        <li>No realizar ingeniería inversa del Bot</li>
-        <li>No abusar de los sistemas de tickets o reportes</li>
-        <li>Respetar las normas de la comunidad de Discord</li>
-    </ul>
-
-    <h2>4. Datos Recopilados</h2>
-    <p>El Bot almacena temporalmente:</p>
-    <ul>
-        <li>IDs de usuario para funcionalidades básicas</li>
-        <li>Registros de tickets y moderación</li>
-        <li>Métricas de uso no identificables</li>
-    </ul>
-    <p>Para más detalles, consulte nuestra <a href="privacy-policy.html">Política de Privacidad</a>.</p>
-
-    <h2>5. Limitación de Responsabilidad</h2>
-    <p>El equipo de Aura Chile RP no se hace responsable por:</p>
-    <ul>
-        <li>Interrupciones temporales del servicio</li>
-        <li>Uso indebido por parte de usuarios</li>
-        <li>Consecuencias de modificaciones no autorizadas</li>
-    </ul>
-
-    <div class="highlight">
-        <h2>6. Modificaciones a los Términos</h2>
-        <p>Nos reservamos el derecho de modificar estos Términos en cualquier momento. Las versiones actualizadas entrarán en vigor inmediatamente después de su publicación. El uso continuado del Bot constituirá la aceptación de los nuevos términos.</p>
-        <p><strong>No se requiere notificación previa a los usuarios para implementar cambios en estos Términos de Servicio.</strong></p>
+    <div class="header">
+        <h1>Términos de Servicio de Aura Chile RP</h1>
     </div>
+    
+    <div class="container">
+        <div class="section">
+            <div class="disclaimer">
+                <h2>⚠️ Aviso Importante</h2>
+                <p>Estos términos aplican exclusivamente al servidor de FiveM "Aura Chile RP". Todo contenido aquí descrito está relacionado con la experiencia de juego dentro de nuestra plataforma y no tiene asociación con Rockstar Games o FiveM.</p>
+            </div>
 
-    <h2>7. Terminación del Servicio</h2>
-    <p>Podemos suspender o terminar el acceso al Bot en cualquier momento por violaciones de estos Términos, sin previo aviso.</p>
+            <p class="date">Última actualización: 24/03/2025</p>
 
-    <h2>8. Legislación Aplicable</h2>
-    <p>Estos Términos se rigen por las leyes de la República de Chile. Cualquier disputa se resolverá en los tribunales competentes de Santiago de Chile.</p>
+            <h2>1. Aceptación de los Términos</h2>
+            <p>Al utilizar el servidor de FiveM "Aura Chile RP" (en adelante, "el Servidor"), usted acepta cumplir con estos Términos de Servicio y todas las políticas incorporadas por referencia.</p>
 
-    <p>Para consultas: aurachilerp@gmail.com</p>
+            <h2>2. Descripción del Servicio</h2>
+            <p>El Servidor proporciona las siguientes funcionalidades:</p>
+            <ul>
+                <li>Experiencia de roleplay (RP) en el universo de Grand Theft Auto V</li>
+                <li>Sistema de economía virtual</li>
+                <li>Interacciones de juego realistas</li>
+                <li>Sistema de facciones y trabajos</li>
+                <li>Eventos especiales y actividades comunitarias</li>
+            </ul>
+
+            <div class="highlight warning">
+                <h2>3. Limitación de Responsabilidad</h2>
+                <p>El equipo de Aura Chile RP no se hace responsable por:</p>
+                <ul>
+                    <li>Interrupciones temporales del servicio</li>
+                    <li>Pérdida de progreso o items virtuales</li>
+                    <li>Contenido generado por otros usuarios</li>
+                    <li>Modificaciones en las mecánicas de juego</li>
+                </ul>
+            </div>
+
+            <h2>4. Conducta en el Servidor</h2>
+            <p>Los usuarios deben:</p>
+            <ul>
+                <li>Mantener siempre el roleplay</li>
+                <li>Respetar a todos los jugadores</li>
+                <li>Seguir las normas específicas de cada facción</li>
+                <li>No utilizar hacks o ventajas injustas</li>
+                <li>Reportar bugs mediante los canales oficiales</li>
+            </ul>
+
+            <div class="highlight">
+                <h2>5. Sanciones</h2>
+                <p>El incumplimiento de estas normas puede resultar en:</p>
+                <ul>
+                    <li>Amonestaciones verbales</li>
+                    <li>Suspensiones temporales</li>
+                    <li>Baneos permanentes</li>
+                    <li>Pérdida de items o progreso</li>
+                </ul>
+            </div>
+
+            <h2>6. Contacto</h2>
+            <p>Para consultas sobre estos términos:<br>
+            Email: soporte@aurachilerp.cl<br>
+            Discord: chaotic.n</p>
+
+            <div class="legal-footer">
+                <p>© 2024 Aura Chile RP - Servidor de Roleplay en FiveM</p>
+                <p>Este servicio no está afiliado a Rockstar Games, Take-Two Interactive o CitizenFX Collective.</p>
+                <p>Todos los derechos de Grand Theft Auto V pertenecen a sus respectivos dueños.</p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
