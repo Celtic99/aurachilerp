@@ -314,11 +314,12 @@
         }
 
         .tier-header {
-            padding: 20px;
+            padding: 15px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             background-color: var(--highlight-bg);
+            gap: 15px;
         }
 
         .tier-content {
@@ -343,16 +344,20 @@
         .aura { color: var(--aura); }
 
         .tier-price {
-            padding: 5px 10px;
+            padding: 6px 12px;
             border-radius: 4px;
             font-weight: 600;
             border: 1px solid currentColor;
             color: var(--text);
+            min-width: max-content;
+            font-size: 1rem;
         }
 
         .money {
             font-weight: 600;
             color: var(--secondary);
+            display: inline-block;
+            white-space: nowrap;
         }
 
         .chevron {
@@ -451,6 +456,37 @@
 
             .community-grid {
                 grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .tier-header {
+                flex-wrap: wrap;
+                gap: 10px;
+                padding: 15px;
+            }
+            
+            .tier-price {
+                font-size: 0.9rem;
+                padding: 4px 8px;
+                white-space: nowrap;
+            }
+            
+            .tier-name {
+                font-size: 1rem;
+            }
+            
+            .donation-tier {
+                margin: 15px 0;
+            }
+            
+            .tier-content li {
+                font-size: 0.95rem;
+            }
+            
+            .money {
+                display: inline-block;
+                white-space: nowrap;
             }
         }
 
