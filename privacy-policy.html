@@ -24,23 +24,40 @@
             --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --primary: #a8a58b;
-                --primary-light: #d1ceb5;
-                --secondary: #8d9eb0;
-                --secondary-light: #b2c1d1;
-                --accent: #8d9eb0;
-                --text: #ecf0f1;
-                --text-light: #bdc3c7;
-                --bg: #1a1a1a;
-                --card: #2d3436;
-                --highlight-bg: #2c3e50;
-                --highlight-border: #5d6d7e;
-                --warning-bg: #424242;
-                --warning-border: #ffb74d;
-                --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-            }
+        body.light-mode {
+            --primary: #747059;
+            --primary-light: #a8a58b;
+            --secondary: #5d6d7e;
+            --secondary-light: #8d9eb0;
+            --accent: #5d6d7e;
+            --text: #2c3e50;
+            --text-light: #636e72;
+            --bg: #f8f9fa;
+            --card: #ffffff;
+            --highlight-bg: #e8f4f8;
+            --highlight-border: #5d6d7e;
+            --warning-bg: #fff3e0;
+            --warning-border: #ffb74d;
+        }
+
+        body.dark-mode {
+            --primary: #a8a58b;
+            --primary-light: #d1ceb5;
+            --secondary: #8d9eb0;
+            --secondary-light: #b2c1d1;
+            --accent: #8d9eb0;
+            --text: #ecf0f1;
+            --text-light: #bdc3c7;
+            --bg: #1a1a1a;
+            --card: #2d3436;
+            --highlight-bg: #2c3e50;
+            --highlight-border: #5d6d7e;
+            --warning-bg: #424242;
+            --warning-border: #ffb74d;
+        }
+
+        * {
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         body {
@@ -50,7 +67,6 @@
             padding: 0;
             background-color: var(--bg);
             color: var(--text);
-            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         .nav-container {
@@ -94,7 +110,6 @@
             align-items: center;
         }
 
-        /* Estilos del menú desplegable */
         .dropdown {
             position: relative;
             display: inline-block;
@@ -114,8 +129,8 @@
         }
 
         .dropdown-btn:hover {
-            color: var(--accent);
             background-color: var(--highlight-bg);
+            color: var(--accent);
         }
 
         .dropdown-content {
@@ -171,14 +186,52 @@
             color: var(--primary);
         }
 
-        .theme-btn:hover {
-            background: var(--highlight-bg);
-        }
-
         .container {
             max-width: 900px;
             margin: 40px auto;
             padding: 0 30px;
+        }
+
+        .search-container {
+            position: relative;
+            margin: 20px 0 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #search-input {
+            width: 100%;
+            padding: 12px 50px 12px 20px;
+            border: 2px solid var(--primary-light);
+            border-radius: 30px;
+            background: var(--card);
+            color: var(--text);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        #search-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 10px rgba(116, 112, 89, 0.2);
+        }
+
+        #search-btn {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        #search-btn svg {
+            width: 24px;
+            height: 24px;
+            color: var(--primary);
         }
 
         header {
@@ -335,6 +388,12 @@
             font-weight: 500;
         }
 
+        .highlight-match {
+            background-color: rgba(255, 235, 59, 0.3);
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+
         @media (max-width: 768px) {
             .container {
                 margin: 20px;
@@ -410,6 +469,15 @@
             <h1>Política de Privacidad</h1>
             <p class="date">Última actualización: 28/03/2025</p>
         </header>
+
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Buscar en política de privacidad...">
+            <button id="search-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                    <path fill="currentColor" d="M18 10a8 8 0 1 0-3.1 6.3l5.4 5.4 1.4-1.4-5.4-5.4A8 8 0 0 0 18 10zm-8 6a6 6 0 1 1 0-12 6 6 0 0 1 0 12z"/>
+                </svg>
+            </button>
+        </div>
 
         <div class="highlight">
             <p>Esta política de privacidad explica cómo <strong>Aura Chile RP</strong> recopila y utiliza la información de los jugadores en nuestro servidor FiveM.</p>
@@ -498,10 +566,11 @@
     </div>
 
     <script>
+        // Sistema de temas
         const themeToggle = document.getElementById('theme-toggle');
         const body = document.body;
         
-        const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        const savedTheme = localStorage.getItem('theme') || 'light';
         setTheme(savedTheme);
 
         themeToggle.addEventListener('click', () => {
@@ -513,6 +582,35 @@
         function setTheme(theme) {
             body.classList.remove('dark-mode', 'light-mode');
             body.classList.add(`${theme}-mode`);
+        }
+
+        // Sistema de búsqueda
+        const searchInput = document.getElementById('search-input');
+        const searchBtn = document.getElementById('search-btn');
+
+        searchBtn.addEventListener('click', performSearch);
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') performSearch();
+        });
+
+        function performSearch() {
+            const query = searchInput.value.toLowerCase();
+            if (!query) return;
+
+            document.querySelectorAll('.highlight-match').forEach(el => {
+                el.outerHTML = el.innerHTML;
+            });
+
+            const content = document.body.innerText;
+            if (content.toLowerCase().includes(query)) {
+                const regex = new RegExp(`(${query})`, 'gi');
+                document.body.innerHTML = document.body.innerHTML.replace(regex, '<span class="highlight-match">$1</span>');
+                
+                const firstMatch = document.querySelector('.highlight-match');
+                if (firstMatch) {
+                    firstMatch.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }
         }
     </script>
 </body>
