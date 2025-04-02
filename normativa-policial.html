@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Normativa Policial - Aura Chile RP</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
+    <style>
         :root {
             --primary: #747059;
             --primary-light: #a8a58b;
@@ -242,6 +242,24 @@
             border-bottom: 1px solid var(--primary-light);
         }
 
+        h3 {
+            color: var(--primary);
+            font-weight: 500;
+            margin-top: 30px;
+        }
+
+        h4 {
+            color: var(--primary);
+            font-weight: 500;
+            margin-top: 25px;
+        }
+
+        h5 {
+            color: var(--primary);
+            font-weight: 500;
+            margin-top: 20px;
+        }
+
         p {
             margin: 20px 0;
             color: var(--text);
@@ -397,61 +415,147 @@
             word-break: break-word;
         }
 
-        .hierarchy-section {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            margin: 30px 0;
+        /* ESTILOS PARA JERARQUÍAS */
+        .hierarchy-container {
+            margin: 40px 0;
+            background: var(--card);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+        }
+
+        .hierarchy-header {
+            padding: 20px;
+            background: var(--primary);
+            color: white;
+            text-align: center;
+        }
+
+        .hierarchy-header h2 {
+            margin: 0;
+            color: white;
+            border-bottom: none;
+        }
+
+        .hierarchy-header p {
+            margin: 5px 0 0;
+            opacity: 0.9;
+        }
+
+        .hierarchy-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding: 20px;
         }
 
         .hierarchy-card {
-            flex: 1;
-            min-width: 300px;
-            background: var(--card);
-            border-radius: var(--border-radius);
+            display: flex;
+            background: var(--bg);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .hierarchy-logo-container {
             padding: 20px;
-            box-shadow: var(--shadow);
+            background: var(--card);
+            display: flex;
+            align-items: center;
         }
 
         .hierarchy-logo {
             width: 100px;
             height: 100px;
-            margin: 0 auto 20px;
-            display: block;
             object-fit: contain;
         }
 
-        .hierarchy-title {
-            text-align: center;
+        .hierarchy-content {
+            padding: 15px;
+            flex: 1;
+        }
+
+        .hierarchy-content h3 {
+            margin-top: 0;
             color: var(--primary);
-            margin-bottom: 20px;
-            font-size: 1.4rem;
+            border-bottom: 1px solid var(--primary-light);
+            padding-bottom: 5px;
         }
 
-        .hierarchy-list {
+        .rank-group {
+            margin-bottom: 15px;
+        }
+
+        .rank-group h4 {
+            margin: 10px 0 5px;
+            color: var(--secondary);
+            font-size: 0.95rem;
+        }
+
+        .rank-group ul {
             list-style: none;
-            padding: 0;
+            padding-left: 0;
+            margin: 0;
         }
 
-        .hierarchy-list li {
-            padding: 8px 0;
+        .rank-group li {
+            padding: 3px 0;
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        .rank-group li strong {
+            color: var(--primary);
+        }
+
+        .rank-group li em {
+            color: var(--text-light);
+        }
+
+        /* ESTILOS PARA SECCIÓN DERECHOS */
+        .rights-section {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius);
+            border-left: 3px solid var(--secondary);
+        }
+
+        .rights-section h4 {
+            color: var(--primary);
+            margin-top: 0;
+            padding-bottom: 5px;
             border-bottom: 1px dashed var(--primary-light);
-            display: flex;
-            justify-content: space-between;
         }
 
-        .hierarchy-list li:last-child {
+        .rights-list {
+            margin: 15px 0;
+        }
+
+        .rights-list ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .rights-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            margin-left: 0;
+        }
+
+        .rights-list li:last-child {
             border-bottom: none;
         }
 
-        .rank-name {
-            font-weight: 500;
+        .rights-list li strong {
+            color: var(--secondary);
         }
 
-        .rank-category {
-            font-size: 0.9rem;
-            color: var(--text-light);
-            font-style: italic;
+        .rights-list li::before {
+            content: none;
+        }
+
+        .dark-mode .rights-section {
+            background-color: rgba(0, 0, 0, 0.2);
         }
 
         @media (max-width: 768px) {
@@ -496,58 +600,21 @@
                 grid-template-columns: 1fr;
             }
 
+            .hierarchy-grid {
+                grid-template-columns: 1fr;
+            }
+            
             .hierarchy-card {
-                min-width: 100%;
+                flex-direction: column;
+            }
+            
+            .hierarchy-logo-container {
+                justify-content: center;
             }
         }
 
         html {
             scroll-behavior: smooth;
-        }
-        .rights-section {
-        margin-top: 20px;
-        padding: 15px;
-        background-color: rgba(255, 255, 255, 0.1);
-        border-radius: var(--border-radius);
-        border-left: 3px solid var(--secondary);
-        }
-
-        .rights-section h4 {
-        color: var(--primary);
-        margin-top: 0;
-        padding-bottom: 5px;
-        border-bottom: 1px dashed var(--primary-light);
-        }
-
-        .rights-list {
-        margin: 15px 0;
-        }
-
-        .rights-list ul {
-        list-style-type: none;
-        padding-left: 0;
-        }
-
-        .rights-list li {
-        padding: 8px 0;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        margin-left: 0;
-        }
-
-        .rights-list li:last-child {
-        border-bottom: none;
-        }
-
-        .rights-list li strong {
-        color: var(--secondary);
-        }
-
-        .rights-list li::before {
-        content: none;
-        }
-
-        .dark-mode .rights-section {
-        background-color: rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
@@ -645,7 +712,89 @@
                 <li>Artículo 11: Disparar a abatir tras 2 advertencias</li>
                 <li>Artículo 12: Botón de pánico solo en emergencias</li>
             </ul>
+        </div>
 
+        <!-- SECCIÓN JERARQUÍAS COMPLETAMENTE INDEPENDIENTE -->
+        <div class="hierarchy-container">
+            <div class="hierarchy-header">
+                <h2>Jerarquías Institucionales</h2>
+                <p>Estructura de rangos de las instituciones policiales</p>
+            </div>
+            
+            <div class="hierarchy-grid">
+                <div class="hierarchy-card">
+                    <div class="hierarchy-logo-container">
+                        <img src="https://media.discordapp.net/attachments/1050912243392467054/1339001874375770223/PDI.png" 
+                             alt="Logo PDI" class="hierarchy-logo">
+                    </div>
+                    <div class="hierarchy-content">
+                        <h3>Policía de Investigaciones</h3>
+                        <div class="rank-group">
+                            <h4>Alto Mando</h4>
+                            <ul>
+                                <li><strong>Director General</strong></li>
+                                <li>Prefecto General</li>
+                                <li>Prefecto Inspector</li>
+                            </ul>
+                        </div>
+                        <div class="rank-group">
+                            <h4>Prefectura</h4>
+                            <ul>
+                                <li>Prefecto</li>
+                                <li>Sub-Prefecto</li>
+                                <li>Comisario</li>
+                                <li>Sub-Comisario</li>
+                            </ul>
+                        </div>
+                        <div class="rank-group">
+                            <h4>Investigadores</h4>
+                            <ul>
+                                <li>Inspector</li>
+                                <li>Sub-Inspector</li>
+                                <li><em>Detective (Rango inicial)</em></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hierarchy-card">
+                    <div class="hierarchy-logo-container">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Roundel_of_Carabineros_de_Chile.svg/1823px-Roundel_of_Carabineros_de_Chile.svg.png" 
+                             alt="Logo Carabineros" class="hierarchy-logo">
+                    </div>
+                    <div class="hierarchy-content">
+                        <h3>Carabineros de Chile</h3>
+                        <div class="rank-group">
+                            <h4>Alto Mando</h4>
+                            <ul>
+                                <li><strong>General Director</strong></li>
+                                <li>General</li>
+                                <li>Coronel</li>
+                            </ul>
+                        </div>
+                        <div class="rank-group">
+                            <h4>Oficiales</h4>
+                            <ul>
+                                <li>Mayor</li>
+                                <li>Capitán</li>
+                                <li>Teniente</li>
+                                <li>SubTeniente</li>
+                            </ul>
+                        </div>
+                        <div class="rank-group">
+                            <h4>Suboficiales y Tropa</h4>
+                            <ul>
+                                <li>Sargento</li>
+                                <li>Cabo 1ro</li>
+                                <li><em>Cabo 2do (Rango inicial)</em></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="highlight">
             <h3>Procedimientos de Arrestos y Derechos</h3>
             <ul>
                 <li>Artículo 13: Actuar con veracidad como testigos de fe</li>
@@ -655,6 +804,26 @@
                 <li>Artículo 17: Leer derechos hasta 3 veces si no hay comprensión</li>
                 <li>Artículo 18: Derecho a audiencia con multas superiores a $30M</li>
             </ul>
+
+            <!-- SECCIÓN DE DERECHOS -->
+            <div class="rights-section">
+                <h4>Protocolo de Derechos</h4>
+                <p>Siempre se deberán leer los derechos a la persona que está siendo procesada antes de ingresar a la comisaría. Si la persona no da indicios de haber entendido, se podrán repetir hasta un máximo de tres veces. En caso de que no se hayan leído los derechos, se deberá aplicar la multa correspondiente y liberar al detenido.</p>
+                
+                <div class="rights-list">
+                    <ul>
+                        <li><strong>Tiene derecho a guardar silencio</strong>, todo lo que diga podrá y será usado en su contra.</li>
+                        <li><strong>Tiene derecho a una llamada</strong> de un minuto con un oficial en presencia.</li>
+                        <li><strong>Tiene derecho a comida, agua</strong> y asistencia médica si es que lo necesita.</li>
+                        <li><strong>Tiene derecho a un abogado</strong>, pero como fue pillado infraganti este derecho será revocado.</li>
+                    </ul>
+                </div>
+
+                <div class="highlight warning" style="margin-top:15px;">
+                    <h5>Cadena perpetua por superar los $30.000.000</h5>
+                    <p>Informar que tiene la posibilidad de tener una audiencia si es que se encuentra un abogado disponible, y sólo tendrá 10 minutos para contactar a alguno.</p>
+                </div>
+            </div>
 
             <h3>Procedimientos y Negociaciones</h3>
             <ul>
@@ -675,64 +844,6 @@
                 <li>Artículo 29: Registrar número de serie del armamento</li>
                 <li>Artículo 30: Multa de $7M por pérdida no reportada</li>
             </ul>
-        </div>
-
-            <!-- Jerarquías Institucionales -->
-            <div class="hierarchy-section">
-                <div class="hierarchy-card">
-                    <img src="https://media.discordapp.net/attachments/1050912243392467054/1339001874375770223/PDI.png?ex=67ee646c&is=67ed12ec&hm=6b316763a479eab0172f4c9a8f2c20d12ca0088a972f3ec0da8e92bc43ffe730&=&format=webp&quality=lossless&width=847&height=847" alt="Logo PDI" class="hierarchy-logo">
-                    <h3 class="hierarchy-title">Jerarquía PDI</h3>
-                    <ul class="hierarchy-list">
-                        <li><span class="rank-name">Director General</span> <span class="rank-category">Rango más alto</span></li>
-                        <li><span class="rank-name">Prefecto General</span> <span class="rank-category">Rango Administrativo</span></li>
-                        <li><span class="rank-name">Prefecto Inspector</span> <span class="rank-category">Rango Administrativo</span></li>
-                        <li><span class="rank-name">Prefecto</span> <span class="rank-category">Optable a Prefectura</span></li>
-                        <li><span class="rank-name">Sub-Prefecto</span> <span class="rank-category">Optable a Prefectura</span></li>
-                        <li><span class="rank-name">Comisario</span> <span class="rank-category">Optable a Prefectura</span></li>
-                        <li><span class="rank-name">Sub-Comisario</span> <span class="rank-category">Optable a Prefectura</span></li>
-                        <li><span class="rank-name">Inspector</span></li>
-                        <li><span class="rank-name">Sub-Inspector</span></li>
-                        <li><span class="rank-name">Detective</span> <span class="rank-category">Rango de entrada</span></li>
-                    </ul>
-                </div>
-
-                <div class="hierarchy-card">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Roundel_of_Carabineros_de_Chile.svg/1823px-Roundel_of_Carabineros_de_Chile.svg.png" alt="Logo Carabineros" class="hierarchy-logo">
-                    <h3 class="hierarchy-title">Jerarquía Carabineros</h3>
-                    <ul class="hierarchy-list">
-                        <li><span class="rank-name">General Director</span> <span class="rank-category">Rango más alto</span></li>
-                        <li><span class="rank-name">General</span> <span class="rank-category">Rango Administrativo</span></li>
-                        <li><span class="rank-name">Coronel</span> <span class="rank-category">Rango Administrativo</span></li>
-                        <li><span class="rank-name">Mayor</span> <span class="rank-category">Optable a Prefectura</span></li>
-                        <li><span class="rank-name">Capitán</span> <span class="rank-category">Optable a Prefectura</span></li>
-                        <li><span class="rank-name">Teniente</span> <span class="rank-category">Optable a Prefectura</span></li>
-                        <li><span class="rank-name">SubTeniente</span> <span class="rank-category">Optable a Prefectura</span></li>
-                        <li><span class="rank-name">Sargento</span></li>
-                        <li><span class="rank-name">Cabo 1ro</span></li>
-                        <li><span class="rank-name">Cabo 2do</span> <span class="rank-category">Rango de entrada</span></li>
-                    </ul>
-                </div>
-            </div>
-
-                    <!-- SECCIÓN DE DERECHOS -->
-            <div class="rights-section">
-                <h4>Protocolo de Derechos</h4>
-                <p>Siempre se deberán leer los derechos a la persona que está siendo procesada antes de ingresar a la comisaría. Si la persona no da indicios de haber entendido, se podrán repetir hasta un máximo de tres veces. En caso de que no se hayan leído los derechos, se deberá aplicar la multa correspondiente y liberar al detenido.</p>
-                
-                <div class="rights-list">
-                    <ul>
-                        <li><strong>Tiene derecho a guardar silencio</strong>, todo lo que diga podrá y será usado en su contra.</li>
-                        <li><strong>Tiene derecho a una llamada</strong> de un minuto con un oficial en presencia.</li>
-                        <li><strong>Tiene derecho a comida, agua</strong> y asistencia médica si es que lo necesita.</li>
-                        <li><strong>Tiene derecho a un abogado</strong>, pero como fue pillado infraganti este derecho será revocado.</li>
-                    </ul>
-                </div>
-
-                <div class="highlight warning" style="margin-top:15px;">
-                    <h5>Cadena perpetua por superar los $30.000.000</h5>
-                    <p>Informar que tiene la posibilidad de tener una audiencia si es que se encuentra un abogado disponible, y sólo tendrá 10 minutos para contactar a alguno.</p>
-                </div>
-            </div>
         </div>
         
         <div class="highlight warning">
