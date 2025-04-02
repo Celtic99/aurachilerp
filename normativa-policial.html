@@ -504,6 +504,51 @@
         html {
             scroll-behavior: smooth;
         }
+        .rights-section {
+        margin-top: 20px;
+        padding: 15px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: var(--border-radius);
+        border-left: 3px solid var(--secondary);
+        }
+
+        .rights-section h4 {
+        color: var(--primary);
+        margin-top: 0;
+        padding-bottom: 5px;
+        border-bottom: 1px dashed var(--primary-light);
+        }
+
+        .rights-list {
+        margin: 15px 0;
+        }
+
+        .rights-list ul {
+        list-style-type: none;
+        padding-left: 0;
+        }
+
+        .rights-list li {
+        padding: 8px 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        margin-left: 0;
+        }
+
+        .rights-list li:last-child {
+        border-bottom: none;
+        }
+
+        .rights-list li strong {
+        color: var(--secondary);
+        }
+
+        .rights-list li::before {
+        content: none;
+        }
+
+        .dark-mode .rights-section {
+        background-color: rgba(0, 0, 0, 0.2);
+        }
     </style>
 </head>
 <body>
@@ -668,6 +713,27 @@
                     </ul>
                 </div>
             </div>
+
+                    <!-- SECCIÓN DE DERECHOS -->
+            <div class="rights-section">
+                <h4>Protocolo de Derechos</h4>
+                <p>Siempre se deberán leer los derechos a la persona que está siendo procesada antes de ingresar a la comisaría. Si la persona no da indicios de haber entendido, se podrán repetir hasta un máximo de tres veces. En caso de que no se hayan leído los derechos, se deberá aplicar la multa correspondiente y liberar al detenido.</p>
+                
+                <div class="rights-list">
+                    <ul>
+                        <li><strong>Tiene derecho a guardar silencio</strong>, todo lo que diga podrá y será usado en su contra.</li>
+                        <li><strong>Tiene derecho a una llamada</strong> de un minuto con un oficial en presencia.</li>
+                        <li><strong>Tiene derecho a comida, agua</strong> y asistencia médica si es que lo necesita.</li>
+                        <li><strong>Tiene derecho a un abogado</strong>, pero como fue pillado infraganti este derecho será revocado.</li>
+                    </ul>
+                </div>
+
+                <div class="highlight warning" style="margin-top:15px;">
+                    <h5>Cadena perpetua por superar los $30.000.000</h5>
+                    <p>Informar que tiene la posibilidad de tener una audiencia si es que se encuentra un abogado disponible, y sólo tendrá 10 minutos para contactar a alguno.</p>
+                </div>
+            </div>
+        </div>
         
         <div class="highlight warning">
             <h2>Códigos Radiales Completos</h2>
