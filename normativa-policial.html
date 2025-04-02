@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Normativa Policial - Aura Chile RP</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #747059;
@@ -248,12 +248,6 @@
             margin-top: 30px;
         }
 
-        h4 {
-            color: var(--primary);
-            font-weight: 500;
-            margin-top: 25px;
-        }
-
         p {
             margin: 20px 0;
             color: var(--text);
@@ -308,112 +302,151 @@
             font-weight: 400;
         }
 
-        /* Estilos para Jerarquías */
-        .hierarchy-container {
-            margin: 40px 0;
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
             background: var(--card);
+            box-shadow: var(--shadow);
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+            vertical-align: middle;
+            border-bottom: 1px solid var(--primary-light);
+        }
+
+        th {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        tr:hover {
+            background-color: var(--highlight-bg);
+        }
+
+        .hierarchy-container {
+            margin: 30px auto;
+            max-width: 800px;
+            background: var(--card);
+            padding: 20px;
             border-radius: var(--border-radius);
             box-shadow: var(--shadow);
         }
 
-        .hierarchy-header {
-            padding: 20px;
-            background: var(--primary);
-            color: white;
-            border-radius: var(--border-radius) var(--border-radius) 0 0;
+        .hierarchy-logo {
             text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .hierarchy-logo img {
+            max-height: 100px;
+            max-width: 100%;
         }
 
         .hierarchy-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
-            padding: 20px;
+            margin: 20px 0;
         }
 
-        .hierarchy-card {
+        .hierarchy-column {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .hierarchy-header {
+            text-align: center;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid var(--primary-light);
+        }
+
+        .hierarchy-item {
             background: var(--bg);
+            border: 2px solid var(--primary-light);
             border-radius: 8px;
-            overflow: hidden;
-            display: flex;
+            padding: 12px 15px;
+            text-align: center;
+            position: relative;
         }
 
-        .hierarchy-logo-container {
-            padding: 20px;
-            background: var(--card);
-            display: flex;
-            align-items: center;
+        .hierarchy-item.primary {
+            background: var(--highlight-bg);
+            border-color: var(--highlight-border);
+            font-weight: 500;
         }
 
-        .hierarchy-logo {
-            width: 100px;
-            height: 100px;
-            object-fit: contain;
+        .hierarchy-divider {
+            text-align: center;
+            margin: 25px 0;
+            position: relative;
+            color: var(--primary);
+            font-style: italic;
         }
 
-        .hierarchy-content {
-            padding: 15px;
-            flex: 1;
+        .hierarchy-divider::before,
+        .hierarchy-divider::after {
+            content: "-----";
+            margin: 0 10px;
+            color: var(--primary-light);
         }
 
-        .rank-group {
-            margin-bottom: 15px;
+        .community-section {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid var(--primary-light);
         }
 
-        .rank-group h4 {
-            margin: 10px 0 5px;
-            color: var(--secondary);
-            font-size: 0.95rem;
+        .community-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 20px;
         }
 
-        .rank-group ul {
+        .community-links ul, .connect-server ul {
             list-style: none;
             padding-left: 0;
-            margin: 0;
         }
 
-        .rank-group li {
-            padding: 3px 0;
-            margin: 0;
-            font-size: 0.9rem;
-        }
-
-        /* Estilos para Derechos */
-        .rights-container {
-            margin: 40px 0;
-            background: var(--card);
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-        }
-
-        .rights-header {
-            padding: 20px;
-            background: var(--primary);
-            color: white;
-            border-radius: var(--border-radius) var(--border-radius) 0 0;
-            text-align: center;
-        }
-
-        .rights-content {
-            padding: 20px;
-        }
-
-        .rights-list ul {
-            list-style-type: none;
+        .community-links li, .connect-server li {
+            margin-bottom: 15px;
             padding-left: 0;
         }
 
-        .rights-list li {
-            padding: 8px 0;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        .community-links a, .connect-server a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 12px 20px;
+            background-color: var(--card);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--primary-light);
         }
 
-        .rights-list li:last-child {
-            border-bottom: none;
+        .community-links a:hover, .connect-server a:hover {
+            background-color: var(--highlight-bg);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
         }
 
-        .rights-list li strong {
-            color: var(--secondary);
+        .community-icon {
+            width: 24px;
+            height: 24px;
+        }
+
+        .link-text {
+            font-weight: 500;
         }
 
         @media (max-width: 768px) {
@@ -454,12 +487,8 @@
                 font-size: 1.4rem;
             }
 
-            .hierarchy-grid {
+            .community-grid, .hierarchy-grid {
                 grid-template-columns: 1fr;
-            }
-
-            .hierarchy-card {
-                flex-direction: column;
             }
         }
 
@@ -540,273 +569,72 @@
             
             <h3>Jerarquía y Estadía</h3>
             <ul>
-                <li>Artículo 1: Respeto absoluto a la cadena de mando</li>
-                <li>Artículo 2: Saludo protocolario con mención de rango</li>
-                <li>Artículo 3: El acceso a oficinas de altos rangos está prohibido sin permiso</li>
-                <li>Artículo 4: 4 faltas = baja institucional</li>
-                <li>Artículo 5: Oficiales que cometan crimen recibirán cadena perpetua sin defensa</li>
+                <li><strong>Artículo 1:</strong> Respeto absoluto a la cadena de mando</li>
+                <li><strong>Artículo 2:</strong> Saludo protocolario con mención de rango</li>
+                <li><strong>Artículo 3:</strong> El acceso a oficinas de altos rangos está prohibido sin permiso</li>
+                <li><strong>Artículo 4:</strong> 4 faltas = baja institucional</li>
+                <li><strong>Artículo 5:</strong> Oficiales que cometan crimen recibirán cadena perpetua sin defensa</li>
             </ul>
 
             <h3>Vehículos y Equipamiento</h3>
             <ul>
-                <li>Artículo 6: Vehículos institucionales solo en servicio</li>
-                <li>Artículo 7: Prohibidos vehículos civiles en servicio sin autorización</li>
-                <li>Artículo 8: Prohibido patrullar con casco</li>
-                <li>Artículo 9: Uso exclusivo de armamento autorizado</li>
+                <li><strong>Artículo 6:</strong> Vehículos institucionales solo en servicio</li>
+                <li><strong>Artículo 7:</strong> Prohibidos vehículos civiles en servicio sin autorización</li>
+                <li><strong>Artículo 8:</strong> Prohibido patrullar con casco</li>
+                <li><strong>Artículo 9:</strong> Uso exclusivo de armamento autorizado</li>
             </ul>
 
             <h3>Uso de la Fuerza</h3>
             <ul>
-                <li>Artículo 10: Uso de armamento solo cuando la situación lo requiera</li>
-                <li>Artículo 11: Disparar a abatir tras 2 advertencias</li>
-                <li>Artículo 12: Botón de pánico solo en emergencias</li>
-            </ul>
-
-            <h3>Procedimientos de Arrestos</h3>
-            <ul>
-                <li>Artículo 13: Actuar con veracidad como testigos de fe</li>
-                <li>Artículo 14: Arresto permitido con pruebas contundentes de crimen</li>
-                <li>Artículo 15: Prohibido realizar arrestos fuera de servicio</li>
-                <li>Artículo 16: Comunicar motivo de detención al arrestado</li>
-                <li>Artículo 17: Leer derechos hasta 3 veces si no hay comprensión</li>
-                <li>Artículo 18: Derecho a audiencia con multas superiores a $30M</li>
-            </ul>
-
-            <h3>Procedimientos y Negociaciones</h3>
-            <ul>
-                <li>Artículo 19: Priorizar liberación de rehenes en negociaciones</li>
-                <li>Artículo 20: Informar mediante altavoz ruptura de negociación</li>
-                <li>Artículo 21: Prohibido control prolongado de zonas de drogas</li>
-                <li>Artículo 22: Uso de helicóptero con mínimo 5 unidades terrestres</li>
-                <li>Artículo 23: Protección de la vida de compañeros es prioritaria</li>
-                <li>Artículo 24: Solo CENCO/MANDO puede modificar nivel de alerta</li>
-                <li>Artículo 25: Interrogatorios máximos de 25 minutos</li>
-                <li>Artículo 26: Identificarse ante civiles salvo en operativos</li>
-            </ul>
-
-            <h3>Armamento Fuera de Servicio</h3>
-            <ul>
-                <li>Artículo 27: Registrar extracción de armamento institucional</li>
-                <li>Artículo 28: Uso solo en emergencias vitales (amonestación por mal uso)</li>
-                <li>Artículo 29: Registrar número de serie del armamento</li>
-                <li>Artículo 30: Multa de $7M por pérdida no reportada</li>
+                <li><strong>Artículo 10:</strong> Uso de armamento solo cuando la situación lo requiera</li>
+                <li><strong>Artículo 11:</strong> Disparar a abatir tras 2 advertencias</li>
+                <li><strong>Artículo 12:</strong> Botón de pánico solo en emergencias</li>
             </ul>
         </div>
 
-        <!-- Sección de Jerarquías -->
         <div class="hierarchy-container">
-            <div class="hierarchy-header">
-                <h2>Jerarquías Institucionales</h2>
-                <p>Estructura de rangos policiales</p>
+            <div class="hierarchy-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Roundel_of_Carabineros_de_Chile.svg/1823px-Roundel_of_Carabineros_de_Chile.svg.png" alt="Carabineros de Chile">
             </div>
-            <div class="hierarchy-grid">
-                <!-- Tarjeta PDI -->
-                <div class="hierarchy-card">
-                    <div class="hierarchy-logo-container">
-                        <img src="https://media.discordapp.net/attachments/1050912243392467054/1339001874375770223/PDI.png" 
-                             alt="Logo PDI" class="hierarchy-logo">
-                    </div>
-                    <div class="hierarchy-content">
-                        <h3>Policía de Investigaciones</h3>
-                        <div class="rank-group">
-                            <h4>Alto Mando</h4>
-                            <ul>
-                                <li>Director General</li>
-                                <li>Prefecto General</li>
-                                <li>Prefecto Inspector</li>
-                            </ul>
-                        </div>
-                        <div class="rank-group">
-                            <h4>Prefectura</h4>
-                            <ul>
-                                <li>Prefecto</li>
-                                <li>Sub-Prefecto</li>
-                                <li>Comisario</li>
-                                <li>Sub-Comisario</li>
-                            </ul>
-                        </div>
-                        <div class="rank-group">
-                            <h4>Investigadores</h4>
-                            <ul>
-                                <li>Inspector</li>
-                                <li>Sub-Inspector</li>
-                                <li>Detective</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tarjeta Carabineros -->
-                <div class="hierarchy-card">
-                    <div class="hierarchy-logo-container">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Roundel_of_Carabineros_de_Chile.svg/1823px-Roundel_of_Carabineros_de_Chile.svg.png" 
-                             alt="Logo Carabineros" class="hierarchy-logo">
-                    </div>
-                    <div class="hierarchy-content">
-                        <h3>Carabineros de Chile</h3>
-                        <div class="rank-group">
-                            <h4>Alto Mando</h4>
-                            <ul>
-                                <li>General Director</li>
-                                <li>General</li>
-                                <li>Coronel</li>
-                            </ul>
-                        </div>
-                        <div class="rank-group">
-                            <h4>Oficiales</h4>
-                            <ul>
-                                <li>Mayor</li>
-                                <li>Capitán</li>
-                                <li>Teniente</li>
-                                <li>SubTeniente</li>
-                            </ul>
-                        </div>
-                        <div class="rank-group">
-                            <h4>Suboficiales</h4>
-                            <ul>
-                                <li>Sargento</li>
-                                <li>Cabo 1ro</li>
-                                <li>Cabo 2do</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Sección de Derechos -->
-        <div class="rights-container">
-            <div class="rights-header">
-                <h2>Protocolo de Derechos</h2>
-                <p>Derechos fundamentales del detenido</p>
-            </div>
-            <div class="rights-content">
-                <p>Siempre se deberán leer los derechos a la persona que está siendo procesada antes de ingresar a la comisaría. Si la persona no da indicios de haber entendido, se podrán repetir hasta un máximo de tres veces.</p>
-                
-                <div class="rights-list">
-                    <ul>
-                        <li><strong>Derecho 1:</strong> Guardar silencio (todo lo dicho será usado en su contra)</li>
-                        <li><strong>Derecho 2:</strong> Llamada de 1 minuto con oficial presente</li>
-                        <li><strong>Derecho 3:</strong> Acceso a comida, agua y asistencia médica</li>
-                        <li><strong>Derecho 4:</strong> Abogado (revocado en flagrancia)</li>
-                    </ul>
-                </div>
-
-                <div class="highlight warning" style="margin-top:15px;">
-                    <h4>Cadena perpetua (>$30M)</h4>
-                    <p>Derecho a audiencia con abogado dentro de 10 minutos si está disponible</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="highlight warning">
-            <h2>Códigos Radiales Completos</h2>
             
+            <div class="hierarchy-grid">
+                <div class="hierarchy-column">
+                    <div class="hierarchy-header">Alto Mando</div>
+                    <div class="hierarchy-item primary">General Director</div>
+                    <div class="hierarchy-item">General</div>
+                    <div class="hierarchy-item">Coronel</div>
+                </div>
+                
+                <div class="hierarchy-column">
+                    <div class="hierarchy-header">Oficiales</div>
+                    <div class="hierarchy-item">Mayor</div>
+                    <div class="hierarchy-item">Capitán</div>
+                    <div class="hierarchy-item">Teniente</div>
+                    <div class="hierarchy-item">SubTeniente</div>
+                </div>
+            </div>
+            
+            <div class="hierarchy-divider">Suboficiales</div>
+            <div class="hierarchy-item">Sargento</div>
+            <div class="hierarchy-item">Cabo 1ro</div>
+            <div class="hierarchy-item">Cabo 2do</div>
+        </div>
+
+        <div class="highlight">
+            <h2>Códigos Radiales</h2>
             <table>
                 <tr><th>Código</th><th>Significado</th></tr>
-                
-                <!-- Códigos 10-XX -->
                 <tr><td>10-00</td><td>Máxima precaución</td></tr>
                 <tr><td>10-04</td><td>Afirmativo/Recibido</td></tr>
                 <tr><td>10-05</td><td>Negativo</td></tr>
-                <tr><td>10-09</td><td>Repetir última información</td></tr>
-                <tr><td>10-10</td><td>Inicio/Retomar patrullaje</td></tr>
-                <tr><td>10-15</td><td>Traslado de prisionero</td></tr>
-                <tr><td>10-19</td><td>Regreso a comisaría</td></tr>
-                <tr><td>10-20</td><td>Ubicación del agente</td></tr>
-                <tr><td>10-23</td><td>Unidades en alerta</td></tr>
-                <tr><td>10-31</td><td>Sospechoso</td></tr>
-                <tr><td>10-32</td><td>Solicitar refuerzo</td></tr>
-                <tr><td>10-37</td><td>Solicitar grúa</td></tr>
-                <tr><td>10-38</td><td>Solicitar ambulancia</td></tr>
-                <tr><td>10-40</td><td>Cambio de frecuencia</td></tr>
-                <tr><td>10-61</td><td>Pausa operativa</td></tr>
-                <tr><td>10-80</td><td>Reunión en punto específico</td></tr>
-                <tr><td>10-90</td><td>Falsa alarma</td></tr>
-                <tr><td>10-99</td><td>Misión cumplida</td></tr>
-
-                <!-- Claves radiales -->
-                <tr><td>210</td><td>Detención de tránsito</td></tr>
-                <tr><td>246</td><td>Disparos en el lugar</td></tr>
                 <tr><td>254V</td><td>Persecución vehicular</td></tr>
                 <tr><td>254P</td><td>Persecución a pie</td></tr>
-                <tr><td>488A</td><td>Robo menor</td></tr>
-                <tr><td>488B</td><td>Robo mayor</td></tr>
-
-                <!-- Códigos especiales -->
-                <tr><td>Robert</td><td>Disparar a ruedas (conducción temeraria)</td></tr>
-                <tr><td>Pit</td><td>Desestabilizar vehículo (no aplica motos)</td></tr>
-                <tr><td>100</td><td>Obstaculizar persecución</td></tr>
-                <tr><td>BOLO</td><td>Búsqueda no concreta</td></tr>
-                <tr><td>ByC</td><td>Búsqueda específica</td></tr>
-
-                <!-- Códigos numéricos -->
-                <tr><td>Código 0</td><td>Alta prioridad (todas unidades)</td></tr>
-                <tr><td>Código 1</td><td>Cambio de prioridad</td></tr>
-                <tr><td>Código 2</td><td>Solo balizas</td></tr>
                 <tr><td>Código 3</td><td>Balizas y sirenas</td></tr>
-                <tr><td>Código 4</td><td>Finalizar asignación</td></tr>
-                <tr><td>Código 5</td><td>Mantenerse fuera de zona</td></tr>
-                <tr><td>Código 6</td><td>En misión/ocupado</td></tr>
-                <tr><td>Código 7</td><td>Fuera de servicio</td></tr>
-                <tr><td>Código 8</td><td>Actividades internas</td></tr>
-                <tr><td>Código 9</td><td>Cerrar perímetro</td></tr>
-                <tr><td>Código 10</td><td>Despejar frecuencia</td></tr>
             </table>
-
-            <div class="highlight" style="margin-top:20px;">
-                <h3>Protocolos de Uso</h3>
-                <ul>
-                    <li>El código Robert solo aplica después de 5 segundos de conducción temeraria</li>
-                    <li>El código Pit requiere autorización de mando</li>
-                    <li>Los códigos 0-10 deben usarse con responsabilidad</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- NEGOCIACIONES -->
-        <div class="highlight">
-            <h2>Negociaciones</h2>
-            <ul>
-                <li><strong>Cortes permitidos:</strong>
-                    <ul>
-                        <li>Conducción temeraria >5 seg</li>
-                        <li>2 vueltas en U máx.</li>
-                        <li>Entrada a callejones</li>
-                    </ul>
-                </li>
-                <li><strong>Tipos de Negociación:</strong>
-                    <ul>
-                        <li>Salida limpia (100m sin obstáculos)</li>
-                        <li>Descuento de unidades aéreas</li>
-                        <li>Segundos de gracia</li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-
-        <!-- SECCIÓN OOC -->
-        <div class="highlight warning">
-            <h2>Sección OOC</h2>
-            <ul>
-                <li><strong>Prohibiciones:</strong>
-                    <ul>
-                        <li>Amiguismo institucional</li>
-                        <li>Uso corrupto de recursos</li>
-                        <li>Incumplimiento de negociaciones</li>
-                    </ul>
-                </li>
-                <li><strong>Consecuencias:</strong>
-                    <ul>
-                        <li>Expulsión inmediata de la facción</li>
-                        <li>Sanción permanente del servidor</li>
-                    </ul>
-                </li>
-            </ul>
         </div>
 
         <div class="community-section">
-             <h2>Comunidad</h2>
+            <h2>Comunidad</h2>
             <div class="community-grid">
                 <div class="community-links">
                     <h3>Nuestras redes</h3>
@@ -845,7 +673,7 @@
         </div>
     </div>
 
-<script>
+    <script>
         const themeToggle = document.getElementById('theme-toggle');
         const body = document.body;
         
