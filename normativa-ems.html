@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Normativa EMS - Aura Chile RP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #747059;
+            --primary-light: #a8a58b;
+            --secondary: #5d6d7e;
+            --secondary-light: #8d9eb0;
+            --accent: #5d6d7e;
+            --text: #2c3e50;
+            --text-light: #636e72;
+            --bg: #f8f9fa;
+            --card: #ffffff;
+            --highlight-bg: #e8f4f8;
+            --highlight-border: #5d6d7e;
+            --warning-bg: #fff3e0;
+            --warning-border: #ffb74d;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        body.dark-mode {
+            --primary: #a8a58b;
+            --primary-light: #d1ceb5;
+            --secondary: #8d9eb0;
+            --secondary-light: #b2c1d1;
+            --accent: #8d9eb0;
+            --text: #ecf0f1;
+            --text-light: #bdc3c7;
+            --bg: #1a1a1a;
+            --card: #2d3436;
+            --highlight-bg: #2c3e50;
+            --highlight-border: #5d6d7e;
+            --warning-bg: #424242;
+            --warning-border: #ffb74d;
+        }
+
+        * {
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg);
+            color: var(--text);
+        }
+
+        .nav-container {
+            background: var(--card);
+            padding: 1rem;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-logo {
+            height: 40px;
+            width: auto;
+        }
+
+        .brand-text {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 1.3rem;
+            white-space: nowrap;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem 1rem;
+            color: var(--primary);
+            font-weight: 500;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            border-radius: var(--border-radius);
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-btn:hover {
+            background-color: var(--highlight-bg);
+            color: var(--accent);
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: var(--card);
+            min-width: 220px;
+            box-shadow: var(--shadow);
+            border-radius: var(--border-radius);
+            z-index: 1000;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .dropdown-content a {
+            color: var(--text);
+            padding: 12px 16px;
+            display: block;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-content a:hover {
+            background: var(--highlight-bg);
+            color: var(--accent);
+        }
+
+        .dropdown-content .active {
+            background: var(--highlight-bg);
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .theme-btn {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .theme-icon {
+            width: 24px;
+            height: 24px;
+            color: var(--primary);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 30px;
+        }
+
+        .search-container {
+            position: relative;
+            margin: 20px 0 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #search-input {
+            width: 100%;
+            padding: 12px 50px 12px 20px;
+            border: 2px solid var(--primary-light);
+            border-radius: 30px;
+            background: var(--card);
+            color: var(--text);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        #search-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 10px rgba(116, 112, 89, 0.2);
+        }
+
+        #search-btn {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        #search-btn svg {
+            width: 24px;
+            height: 24px;
+            color: var(--primary);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--primary-light);
+        }
+
+        h1 {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 2.4rem;
+        }
+
+        h2 {
+            color: var(--primary);
+            font-weight: 500;
+            margin-top: 40px;
+            font-size: 1.6rem;
+            position: relative;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--primary-light);
+        }
+
+        p {
+            margin: 20px 0;
+            color: var(--text);
+            font-size: 1.05rem;
+        }
+
+        .highlight {
+            background-color: var(--highlight-bg);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 25px 0;
+            border-left: 4px solid var(--highlight-border);
+        }
+
+        .warning {
+            background-color: var(--warning-bg);
+            border-left: 4px solid var(--warning-border);
+        }
+
+        a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--secondary-light);
+            text-decoration: underline;
+        }
+
+        ul, ol {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        ul li::before {
+            content: "•";
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+        }
+
+        ol {
+            list-style-type: decimal;
+        }
+
+        ol li {
+            padding-left: 5px;
+        }
+
+        .date {
+            color: var(--secondary);
+            font-size: 0.9rem;
+            font-weight: 400;
+        }
+
+        .community-section {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid var(--primary-light);
+        }
+
+        .community-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .community-links ul, .connect-server ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .community-links li, .connect-server li {
+            margin-bottom: 15px;
+            padding-left: 0;
+        }
+
+        .community-links a, .connect-server a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 12px 20px;
+            background-color: var(--card);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--primary-light);
+        }
+
+        .community-links a:hover, .connect-server a:hover {
+            background-color: var(--highlight-bg);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .community-icon {
+            width: 24px;
+            height: 24px;
+        }
+
+        .link-text {
+            font-weight: 500;
+        }
+
+        .highlight-match {
+            background-color: rgba(255, 235, 59, 0.3);
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: var(--card);
+            box-shadow: var(--shadow);
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+            vertical-align: middle;
+            border-bottom: 1px solid var(--primary-light);
+        }
+
+        th {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        tr:hover {
+            background-color: var(--highlight-bg);
+        }
+
+        .code-example {
+            background: var(--bg);
+            padding: 15px;
+            border-radius: var(--border-radius);
+            margin: 15px 0;
+            font-family: monospace;
+            border-left: 4px solid var(--primary);
+            white-space: pre-line;
+            word-break: break-word;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 20px;
+                padding: 0 15px;
+            }
+
+            .nav-content {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                width: 100%;
+                justify-content: space-around;
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .dropdown {
+                width: 100%;
+                text-align: center;
+                margin-bottom: 0.5rem;
+            }
+
+            .dropdown-content {
+                width: 100%;
+                left: 0 !important;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            h2 {
+                font-size: 1.4rem;
+            }
+
+            .community-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+    </head>
+<body>
+    <nav class="nav-container">
+        <div class="nav-content">
+            <div class="brand-wrapper">
+                <img src="assets/image.png" alt="Logo Aura Chile RP" class="nav-logo">
+                <span class="brand-text">Aura Chile Roleplay</span>
+            </div>
+            <div class="nav-links">
+              <button class="nav-link dropdown-btn">Términos y Condiciones</button>
+                    <div class="dropdown-content">
+                        <a href="terms-of-service.html">Términos de Servicio</a>
+                        <a href="privacy-policy.html">Política de Privacidad</a>
+                        <a href="donation-terms.html">Términos de Donación</a>
+                    </div>
+                </div>
+          
+                <div class="dropdown">
+                    <button class="nav-link dropdown-btn">Normativas</button>
+                    <div class="dropdown-content">
+                        <a href="normativa-principal.html">Normativa Principal</a>
+                        <a href="normativa-delictual.html">Normativa Delictual</a>
+                        <a href="normativa-policial.html">Normativa Policial</a>
+                        <a href="normativa-ems.html" class="active">Normativa EMS</a>
+                        <a href="normativa-mecanicos.html">Normativa Mecánicos</a>
+                        <a href="conceptos-rol.html">Conceptos de Rol</a>
+                    </div>
+                </div>
+                    <button id="theme-toggle" class="theme-btn">
+                      <svg class="theme-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                          <path fill="currentColor" d="M12 18c-3.3 0-6-2.7-6-6s2.7-6 6-6 6 2.7 6 6-2.7 6-6 6zm0-2c2.2 0 4-1.8 4-4s-1.8-4-4-4-4 1.8-4 4 1.8 4 4 4zM12 3V1h2v2h-2zm0 20v-2h2v2h-2zm9-9h2v2h-2v-2zM1 12h2v2H1v-2zm17.6-6.3l1.4-1.4 1.4 1.4-1.4 1.4-1.4-1.4zM4.3 19.8l1.4-1.4 1.4 1.4-1.4 1.4-1.4-1.4z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+  <div class="container">
+        <header>
+            <h1>Normativa Clínica Dávila</h1>
+            <p class="date">Última actualización: [FECHA]</p>
+        </header>
+    <div class="highlight warning">
+            <h2>Información Institucional</h2>
+            <p>La Clínica Dávila es una de las principales instituciones de salud de Aura Chile, desempeñando un rol crucial en la atención médica de la comunidad.</p>
+            
+            <h3>Sistema de Postulación</h3>
+            <ul>
+                <li><strong>Nacionalidad:</strong> Ser chileno/a</li>
+                <li><strong>Estado civil:</strong> Soltero/a</li>
+                <li><strong>Edad:</strong> 18 a 32 años</li>
+                <li><strong>Forma de postulación:</strong> Inscripción mediante anuncios municipales o directamente en la Clínica</li>
+            </ul>
+        </div>
+<div class="highlight">
+            <h2>Reglamento Interno</h2>
+            
+            <h3>Jerarquía y Estadía</h3>
+            <ul>
+                <li><strong>Artículo 1:</strong> Respeto absoluto a la cadena de mando</li>
+                <li><strong>Artículo 2:</strong> Saludo formal según rango ("Buenas tardes Doctor [Apellido]")</li>
+                <li><strong>Artículo 3:</strong> Acceso restringido a áreas sensibles sin autorización</li>
+                <li><strong>Artículo 4:</strong> 3 faltas = sanción; 4 faltas = baja</li>
+                <li><strong>Artículo 5:</strong> Desvinculación inmediata por actos ilícitos</li>
+            </ul>
+
+            <h3>Vehículos y Equipamiento</h3>
+            <ul>
+                <li><strong>Artículo 6:</strong> Prohibido uso de recursos médicos fuera de servicio</li>
+                <li><strong>Artículo 7:</strong> Solo vehículos institucionales en servicio</li>
+                <li><strong>Artículo 8:</strong> Uniforme reglamentario obligatorio</li>
+            </ul>
+
+            <h3>Procedimientos Médicos</h3>
+            <ul>
+                <li><strong>Artículo 9:</strong> Priorizar seguridad propia y de pacientes</li>
+                <li><strong>Artículo 10:</strong> Respeto a pacientes; lista negra para conflictivos</li>
+                <li><strong>Artículo 11:</strong> Atención obligatoria a necesitados</li>
+                <li><strong>Artículo 12:</strong> Uso regulado de sirenas y balizas</li>
+                <li><strong>Artículo 13:</strong> Zonas peligrosas requieren escolta policial</li>
+                <li><strong>Artículo 14:</strong> Sistema TRIAGE obligatorio</li>
+            </ul>
+        </div>
+    <div class="highlight warning">
+            <h2>Jerarquía Institucional</h2>
+            <img src="assets/jerarquia-ems.png" alt="Jerarquía Clínica Dávila" style="width: 100%; max-width: 600px; margin: 20px auto; display: block;">
+        </div>
+
+        <div class="highlight">
+            <h2>Normativas OOC</h2>
+            <ul>
+                <li><strong>Prohibido:</strong> 
+                    <ul>
+                        <li>Uso indebido de recursos médicos</li>
+                        <li>Corrupción (tráfico de vendajes)</li>
+                        <li>Robo a funcionarios en servicio</li>
+                    </ul>
+                </li>
+                <li><strong>Amiguismo:</strong>
+                    <ul>
+                        <li>Prohibido ascensos injustificados</li>
+                        <li>Prohibida manipulación de reportes</li>
+                        <li><strong>Consecuencias:</strong> Expulsión + sanción permanente</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    <div class="community-section">
+            <h2>Comunidad</h2>
+            <div class="community-grid">
+                <div class="community-links">
+                    <h3>Nuestras redes</h3>
+                    <ul>
+                        <li>
+                            <a href="https://discord.gg/aurachilerp" target="_blank">
+                                <img src="https://cdn-icons-png.flaticon.com/512/5968/5968756.png" alt="Discord" class="community-icon">
+                                <span class="link-text">Únete a nuestro Discord</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.tiktok.com/@aurachilerp" target="_blank">
+                                <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="TikTok" class="community-icon">
+                                <span class="link-text">Síguenos en TikTok</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="connect-server">
+                    <h3>Juega con nosotros</h3>
+                    <ul>
+                        <li>
+                            <a href="https://cfx.re/join/9365ze" target="_blank">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/FiveM-Logo.png" alt="FiveM" class="community-icon">
+                                <span class="link-text">Conéctate al servidor</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    <div class="legal-footer">
+            <p>© 2024-2025 Aura Chile RP - Servidor de Roleplay en FiveM</p>
+            <p>Consulte también nuestros <a href="terms-of-service.html">Términos de Servicio</a> y <a href="privacy-policy.html">Política de Privacidad</a>.</p>
+        </div>
+    </div>
+
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        setTheme(savedTheme);
+
+        themeToggle.addEventListener('click', () => {
+            const newTheme = body.classList.contains('dark-mode') ? 'light' : 'dark';
+            setTheme(newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+
+        function setTheme(theme) {
+            body.classList.remove('dark-mode', 'light-mode');
+            body.classList.add(`${theme}-mode`);
+        }
+
+        const searchInput = document.getElementById('search-input');
+        const searchBtn = document.getElementById('search-btn');
+
+        searchBtn.addEventListener('click', performSearch);
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') performSearch();
+        });
+
+        function performSearch() {
+            const query = searchInput.value.toLowerCase();
+            if (!query) return;
+
+            document.querySelectorAll('.highlight-match').forEach(el => {
+                el.outerHTML = el.innerHTML;
+            });
+
+            const content = document.body.innerText;
+            if (content.toLowerCase().includes(query)) {
+                const regex = new RegExp(`(${query})`, 'gi');
+                document.body.innerHTML = document.body.innerHTML.replace(regex, '<span class="highlight-match">$1</span>');
+                
+                const firstMatch = document.querySelector('.highlight-match');
+                if (firstMatch) {
+                    firstMatch.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }
+        }
+    </script>
+</body>
+</html>
