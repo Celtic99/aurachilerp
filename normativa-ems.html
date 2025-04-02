@@ -443,6 +443,99 @@
         html {
             scroll-behavior: smooth;
         }
+        .hierarchy-container {
+            margin: 30px auto;
+            max-width: 800px;
+            background: var(--card);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+        
+        .hierarchy-title {
+            text-align: center;
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            border-bottom: 2px solid var(--primary-light);
+            padding-bottom: 10px;
+        }
+        
+        .hierarchy-level {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 15px;
+            position: relative;
+        }
+        
+        .hierarchy-item {
+            background: var(--bg);
+            border: 2px solid var(--primary-light);
+            border-radius: 8px;
+            padding: 10px 15px;
+            margin: 0 10px;
+            text-align: center;
+            min-width: 150px;
+            position: relative;
+        }
+        
+        .hierarchy-item.primary {
+            background: var(--highlight-bg);
+            border-color: var(--highlight-border);
+            font-weight: 500;
+        }
+        
+        .hierarchy-arrow {
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+        
+        .hierarchy-specialties {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+        }
+        
+        .hierarchy-specialty {
+            background: var(--warning-bg);
+            border-left: 4px solid var(--warning-border);
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
+        
+        .hierarchy-divider {
+            text-align: center;
+            margin: 20px 0;
+            position: relative;
+        }
+        
+        .hierarchy-divider::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: var(--primary-light);
+            z-index: 1;
+        }
+        
+        .hierarchy-divider span {
+            background: var(--card);
+            position: relative;
+            z-index: 2;
+            padding: 0 15px;
+            color: var(--primary);
+            font-style: italic;
+        }
+      
     </style>
     </head>
 <body>
@@ -484,7 +577,7 @@
   <div class="container">
         <header>
             <h1>Normativa Clínica Dávila</h1>
-            <p class="date">Última actualización: [FECHA]</p>
+            <p class="date">Última actualización: 02/04/2025</p>
         </header>
     <div class="highlight warning">
             <h2>Información Institucional</h2>
@@ -527,10 +620,53 @@
                 <li><strong>Artículo 14:</strong> Sistema TRIAGE obligatorio</li>
             </ul>
         </div>
-    <div class="highlight warning">
+<div class="highlight">
             <h2>Jerarquía Institucional</h2>
-            <img src="assets/jerarquia-ems.png" alt="Jerarquía Clínica Dávila" style="width: 100%; max-width: 600px; margin: 20px auto; display: block;">
+            
+            <div class="hierarchy-container">
+                <div class="hierarchy-title">CLÍNICA DÁVILA</div>
+                
+                <!-- Nivel más alto -->
+                <div class="hierarchy-level">
+                    <div class="hierarchy-item primary">Director Médico</div>
+                    <div class="hierarchy-item primary">Sub-Director Médico</div>
+                </div>
+                
+                <div class="hierarchy-divider"><span>Rango más alto</span></div>
+                
+                <!-- Nivel medio -->
+                <div class="hierarchy-level">
+                    <div class="hierarchy-item">Médico Especialista</div>
+                    <div class="hierarchy-item">Médico Residente</div>
+                </div>
+                
+                <div class="hierarchy-arrow">↓</div>
+                
+                <!-- Nivel base -->
+                <div class="hierarchy-level">
+                    <div class="hierarchy-item">Médico</div>
+                    <div class="hierarchy-item">Enfermero</div>
+                    <div class="hierarchy-item">Técnico en urgencias</div>
+                </div>
+                
+                <div class="hierarchy-divider"><span>Rango de entrada</span></div>
+                
+                <!-- Nivel inicial -->
+                <div class="hierarchy-level">
+                    <div class="hierarchy-item">Estudiante</div>
+                </div>
+                
+                <!-- Especialidades -->
+                <div class="hierarchy-divider"><span>Especialidades en terreno</span></div>
+                
+                <div class="hierarchy-specialties">
+                    <div class="hierarchy-specialty">Rescatista táctico</div>
+                    <div class="hierarchy-specialty">Rescatista en terreno</div>
+                    <div class="hierarchy-specialty">Rescatista iniciado</div>
+                </div>
+            </div>
         </div>
+
 
         <div class="highlight">
             <h2>Normativas OOC</h2>
