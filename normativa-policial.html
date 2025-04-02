@@ -397,6 +397,63 @@
             word-break: break-word;
         }
 
+        .hierarchy-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .hierarchy-card {
+            flex: 1;
+            min-width: 300px;
+            background: var(--card);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .hierarchy-logo {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 20px;
+            display: block;
+            object-fit: contain;
+        }
+
+        .hierarchy-title {
+            text-align: center;
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+        }
+
+        .hierarchy-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .hierarchy-list li {
+            padding: 8px 0;
+            border-bottom: 1px dashed var(--primary-light);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .hierarchy-list li:last-child {
+            border-bottom: none;
+        }
+
+        .rank-name {
+            font-weight: 500;
+        }
+
+        .rank-category {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-style: italic;
+        }
+
         @media (max-width: 768px) {
             .container {
                 margin: 20px;
@@ -437,6 +494,10 @@
 
             .community-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .hierarchy-card {
+                min-width: 100%;
             }
         }
 
@@ -512,127 +573,166 @@
                 <li>Postulaciones mediante anuncios municipales</li>
             </ul>
         </div>
-        <div class="highlight">
-    <h2>Reglamento Interno</h2>
-    
-    <h3>Jerarquía y Estadía</h3>
-    <ul>
-        <li>Artículo 1: Respeto absoluto a la cadena de mando</li>
-        <li>Artículo 2: Saludo protocolario con mención de rango</li>
-        <li>Artículo 3: El acceso a oficinas de altos rangos está prohibido sin permiso</li>
-        <li>Artículo 4: 4 faltas = baja institucional</li>
-        <li>Artículo 5: Oficiales que cometan crimen recibirán cadena perpetua sin defensa</li>
-    </ul>
-
-    <h3>Vehículos y Equipamiento</h3>
-    <ul>
-        <li>Artículo 6: Vehículos institucionales solo en servicio</li>
-        <li>Artículo 7: Prohibidos vehículos civiles en servicio sin autorización</li>
-        <li>Artículo 8: Prohibido patrullar con casco</li>
-        <li>Artículo 9: Uso exclusivo de armamento autorizado</li>
-    </ul>
-
-    <h3>Uso de la Fuerza</h3>
-    <ul>
-        <li>Artículo 10: Uso de armamento solo cuando la situación lo requiera</li>
-        <li>Artículo 11: Disparar a abatir tras 2 advertencias</li>
-        <li>Artículo 12: Botón de pánico solo en emergencias</li>
-    </ul>
-
-    <h3>Procedimientos de Arrestos y Derechos</h3>
-    <ul>
-        <li>Artículo 13: Actuar con veracidad como testigos de fe</li>
-        <li>Artículo 14: Arresto permitido con pruebas contundentes de crimen</li>
-        <li>Artículo 15: Prohibido realizar arrestos fuera de servicio</li>
-        <li>Artículo 16: Comunicar motivo de detención al arrestado</li>
-        <li>Artículo 17: Leer derechos hasta 3 veces si no hay comprensión</li>
-        <li>Artículo 18: Derecho a audiencia con multas superiores a $30M</li>
-    </ul>
-
-    <h3>Procedimientos y Negociaciones</h3>
-    <ul>
-        <li>Artículo 19: Priorizar liberación de rehenes en negociaciones</li>
-        <li>Artículo 20: Informar mediante altavoz ruptura de negociación</li>
-        <li>Artículo 21: Prohibido control prolongado de zonas de drogas</li>
-        <li>Artículo 22: Uso de helicóptero con mínimo 5 unidades terrestres</li>
-        <li>Artículo 23: Protección de la vida de compañeros es prioritaria</li>
-        <li>Artículo 24: Solo CENCO/MANDO puede modificar nivel de alerta</li>
-        <li>Artículo 25: Interrogatorios máximos de 25 minutos</li>
-        <li>Artículo 26: Identificarse ante civiles salvo en operativos</li>
-    </ul>
-
-    <h3>Armamento Fuera de Servicio</h3>
-    <ul>
-        <li>Artículo 27: Registrar extracción de armamento institucional</li>
-        <li>Artículo 28: Uso solo en emergencias vitales (amonestación por mal uso)</li>
-        <li>Artículo 29: Registrar número de serie del armamento</li>
-        <li>Artículo 30: Multa de $7M por pérdida no reportada</li>
-    </ul>
-</div>
-        <div class="highlight warning">
-    <h2>Códigos Radiales Completos</h2>
-    
-    <table>
-        <tr><th>Código</th><th>Significado</th></tr>
         
-        <!-- Códigos 10-XX -->
-        <tr><td>10-00</td><td>Máxima precaución</td></tr>
-        <tr><td>10-04</td><td>Afirmativo/Recibido</td></tr>
-        <tr><td>10-05</td><td>Negativo</td></tr>
-        <tr><td>10-09</td><td>Repetir última información</td></tr>
-        <tr><td>10-10</td><td>Inicio/Retomar patrullaje</td></tr>
-        <tr><td>10-15</td><td>Traslado de prisionero</td></tr>
-        <tr><td>10-19</td><td>Regreso a comisaría</td></tr>
-        <tr><td>10-20</td><td>Ubicación del agente</td></tr>
-        <tr><td>10-23</td><td>Unidades en alerta</td></tr>
-        <tr><td>10-31</td><td>Sospechoso</td></tr>
-        <tr><td>10-32</td><td>Solicitar refuerzo</td></tr>
-        <tr><td>10-37</td><td>Solicitar grúa</td></tr>
-        <tr><td>10-38</td><td>Solicitar ambulancia</td></tr>
-        <tr><td>10-40</td><td>Cambio de frecuencia</td></tr>
-        <tr><td>10-61</td><td>Pausa operativa</td></tr>
-        <tr><td>10-80</td><td>Reunión en punto específico</td></tr>
-        <tr><td>10-90</td><td>Falsa alarma</td></tr>
-        <tr><td>10-99</td><td>Misión cumplida</td></tr>
+        <div class="highlight">
+            <h2>Reglamento Interno</h2>
+            
+            <h3>Jerarquía y Estadía</h3>
+            <ul>
+                <li>Artículo 1: Respeto absoluto a la cadena de mando</li>
+                <li>Artículo 2: Saludo protocolario con mención de rango</li>
+                <li>Artículo 3: El acceso a oficinas de altos rangos está prohibido sin permiso</li>
+                <li>Artículo 4: 4 faltas = baja institucional</li>
+                <li>Artículo 5: Oficiales que cometan crimen recibirán cadena perpetua sin defensa</li>
+            </ul>
 
-        <!-- Claves radiales -->
-        <tr><td>210</td><td>Detención de tránsito</td></tr>
-        <tr><td>246</td><td>Disparos en el lugar</td></tr>
-        <tr><td>254V</td><td>Persecución vehicular</td></tr>
-        <tr><td>254P</td><td>Persecución a pie</td></tr>
-        <tr><td>488A</td><td>Robo menor</td></tr>
-        <tr><td>488B</td><td>Robo mayor</td></tr>
+            <h3>Vehículos y Equipamiento</h3>
+            <ul>
+                <li>Artículo 6: Vehículos institucionales solo en servicio</li>
+                <li>Artículo 7: Prohibidos vehículos civiles en servicio sin autorización</li>
+                <li>Artículo 8: Prohibido patrullar con casco</li>
+                <li>Artículo 9: Uso exclusivo de armamento autorizado</li>
+            </ul>
 
-        <!-- Códigos especiales -->
-        <tr><td>Robert</td><td>Disparar a ruedas (conducción temeraria)</td></tr>
-        <tr><td>Pit</td><td>Desestabilizar vehículo (no aplica motos)</td></tr>
-        <tr><td>100</td><td>Obstaculizar persecución</td></tr>
-        <tr><td>BOLO</td><td>Búsqueda no concreta</td></tr>
-        <tr><td>ByC</td><td>Búsqueda específica</td></tr>
+            <h3>Uso de la Fuerza</h3>
+            <ul>
+                <li>Artículo 10: Uso de armamento solo cuando la situación lo requiera</li>
+                <li>Artículo 11: Disparar a abatir tras 2 advertencias</li>
+                <li>Artículo 12: Botón de pánico solo en emergencias</li>
+            </ul>
 
-        <!-- Códigos numéricos -->
-        <tr><td>Código 0</td><td>Alta prioridad (todas unidades)</td></tr>
-        <tr><td>Código 1</td><td>Cambio de prioridad</td></tr>
-        <tr><td>Código 2</td><td>Solo balizas</td></tr>
-        <tr><td>Código 3</td><td>Balizas y sirenas</td></tr>
-        <tr><td>Código 4</td><td>Finalizar asignación</td></tr>
-        <tr><td>Código 5</td><td>Mantenerse fuera de zona</td></tr>
-        <tr><td>Código 6</td><td>En misión/ocupado</td></tr>
-        <tr><td>Código 7</td><td>Fuera de servicio</td></tr>
-        <tr><td>Código 8</td><td>Actividades internas</td></tr>
-        <tr><td>Código 9</td><td>Cerrar perímetro</td></tr>
-        <tr><td>Código 10</td><td>Despejar frecuencia</td></tr>
-    </table>
+            <!-- Jerarquías Institucionales -->
+            <div class="hierarchy-section">
+                <div class="hierarchy-card">
+                    <img src="https://media.discordapp.net/attachments/1050912243392467054/1339001874375770223/PDI.png?ex=67ee646c&is=67ed12ec&hm=6b316763a479eab0172f4c9a8f2c20d12ca0088a972f3ec0da8e92bc43ffe730&=&format=webp&quality=lossless&width=847&height=847" alt="Logo PDI" class="hierarchy-logo">
+                    <h3 class="hierarchy-title">Jerarquía PDI</h3>
+                    <ul class="hierarchy-list">
+                        <li><span class="rank-name">Director General</span> <span class="rank-category">Rango más alto</span></li>
+                        <li><span class="rank-name">Prefecto General</span> <span class="rank-category">Rango Administrativo</span></li>
+                        <li><span class="rank-name">Prefecto Inspector</span> <span class="rank-category">Rango Administrativo</span></li>
+                        <li><span class="rank-name">Prefecto</span> <span class="rank-category">Optable a Prefectura</span></li>
+                        <li><span class="rank-name">Sub-Prefecto</span> <span class="rank-category">Optable a Prefectura</span></li>
+                        <li><span class="rank-name">Comisario</span> <span class="rank-category">Optable a Prefectura</span></li>
+                        <li><span class="rank-name">Sub-Comisario</span> <span class="rank-category">Optable a Prefectura</span></li>
+                        <li><span class="rank-name">Inspector</span></li>
+                        <li><span class="rank-name">Sub-Inspector</span></li>
+                        <li><span class="rank-name">Detective</span> <span class="rank-category">Rango de entrada</span></li>
+                    </ul>
+                </div>
 
-    <div class="highlight" style="margin-top:20px;">
-        <h3>Protocolos de Uso</h3>
-        <ul>
-            <li>El código Robert solo aplica después de 5 segundos de conducción temeraria</li>
-            <li>El código Pit requiere autorización de mando</li>
-            <li>Los códigos 0-10 deben usarse con responsabilidad</li>
-        </ul>
-    </div>
-</div>
+                <div class="hierarchy-card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Roundel_of_Carabineros_de_Chile.svg/1823px-Roundel_of_Carabineros_de_Chile.svg.png" alt="Logo Carabineros" class="hierarchy-logo">
+                    <h3 class="hierarchy-title">Jerarquía Carabineros</h3>
+                    <ul class="hierarchy-list">
+                        <li><span class="rank-name">General Director</span> <span class="rank-category">Rango más alto</span></li>
+                        <li><span class="rank-name">General</span> <span class="rank-category">Rango Administrativo</span></li>
+                        <li><span class="rank-name">Coronel</span> <span class="rank-category">Rango Administrativo</span></li>
+                        <li><span class="rank-name">Mayor</span> <span class="rank-category">Optable a Prefectura</span></li>
+                        <li><span class="rank-name">Capitán</span> <span class="rank-category">Optable a Prefectura</span></li>
+                        <li><span class="rank-name">Teniente</span> <span class="rank-category">Optable a Prefectura</span></li>
+                        <li><span class="rank-name">SubTeniente</span> <span class="rank-category">Optable a Prefectura</span></li>
+                        <li><span class="rank-name">Sargento</span></li>
+                        <li><span class="rank-name">Cabo 1ro</span></li>
+                        <li><span class="rank-name">Cabo 2do</span> <span class="rank-category">Rango de entrada</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>Procedimientos de Arrestos y Derechos</h3>
+            <ul>
+                <li>Artículo 13: Actuar con veracidad como testigos de fe</li>
+                <li>Artículo 14: Arresto permitido con pruebas contundentes de crimen</li>
+                <li>Artículo 15: Prohibido realizar arrestos fuera de servicio</li>
+                <li>Artículo 16: Comunicar motivo de detención al arrestado</li>
+                <li>Artículo 17: Leer derechos hasta 3 veces si no hay comprensión</li>
+                <li>Artículo 18: Derecho a audiencia con multas superiores a $30M</li>
+            </ul>
+
+            <h3>Procedimientos y Negociaciones</h3>
+            <ul>
+                <li>Artículo 19: Priorizar liberación de rehenes en negociaciones</li>
+                <li>Artículo 20: Informar mediante altavoz ruptura de negociación</li>
+                <li>Artículo 21: Prohibido control prolongado de zonas de drogas</li>
+                <li>Artículo 22: Uso de helicóptero con mínimo 5 unidades terrestres</li>
+                <li>Artículo 23: Protección de la vida de compañeros es prioritaria</li>
+                <li>Artículo 24: Solo CENCO/MANDO puede modificar nivel de alerta</li>
+                <li>Artículo 25: Interrogatorios máximos de 25 minutos</li>
+                <li>Artículo 26: Identificarse ante civiles salvo en operativos</li>
+            </ul>
+
+            <h3>Armamento Fuera de Servicio</h3>
+            <ul>
+                <li>Artículo 27: Registrar extracción de armamento institucional</li>
+                <li>Artículo 28: Uso solo en emergencias vitales (amonestación por mal uso)</li>
+                <li>Artículo 29: Registrar número de serie del armamento</li>
+                <li>Artículo 30: Multa de $7M por pérdida no reportada</li>
+            </ul>
+        </div>
+        
+        <div class="highlight warning">
+            <h2>Códigos Radiales Completos</h2>
+            
+            <table>
+                <tr><th>Código</th><th>Significado</th></tr>
+                
+                <!-- Códigos 10-XX -->
+                <tr><td>10-00</td><td>Máxima precaución</td></tr>
+                <tr><td>10-04</td><td>Afirmativo/Recibido</td></tr>
+                <tr><td>10-05</td><td>Negativo</td></tr>
+                <tr><td>10-09</td><td>Repetir última información</td></tr>
+                <tr><td>10-10</td><td>Inicio/Retomar patrullaje</td></tr>
+                <tr><td>10-15</td><td>Traslado de prisionero</td></tr>
+                <tr><td>10-19</td><td>Regreso a comisaría</td></tr>
+                <tr><td>10-20</td><td>Ubicación del agente</td></tr>
+                <tr><td>10-23</td><td>Unidades en alerta</td></tr>
+                <tr><td>10-31</td><td>Sospechoso</td></tr>
+                <tr><td>10-32</td><td>Solicitar refuerzo</td></tr>
+                <tr><td>10-37</td><td>Solicitar grúa</td></tr>
+                <tr><td>10-38</td><td>Solicitar ambulancia</td></tr>
+                <tr><td>10-40</td><td>Cambio de frecuencia</td></tr>
+                <tr><td>10-61</td><td>Pausa operativa</td></tr>
+                <tr><td>10-80</td><td>Reunión en punto específico</td></tr>
+                <tr><td>10-90</td><td>Falsa alarma</td></tr>
+                <tr><td>10-99</td><td>Misión cumplida</td></tr>
+
+                <!-- Claves radiales -->
+                <tr><td>210</td><td>Detención de tránsito</td></tr>
+                <tr><td>246</td><td>Disparos en el lugar</td></tr>
+                <tr><td>254V</td><td>Persecución vehicular</td></tr>
+                <tr><td>254P</td><td>Persecución a pie</td></tr>
+                <tr><td>488A</td><td>Robo menor</td></tr>
+                <tr><td>488B</td><td>Robo mayor</td></tr>
+
+                <!-- Códigos especiales -->
+                <tr><td>Robert</td><td>Disparar a ruedas (conducción temeraria)</td></tr>
+                <tr><td>Pit</td><td>Desestabilizar vehículo (no aplica motos)</td></tr>
+                <tr><td>100</td><td>Obstaculizar persecución</td></tr>
+                <tr><td>BOLO</td><td>Búsqueda no concreta</td></tr>
+                <tr><td>ByC</td><td>Búsqueda específica</td></tr>
+
+                <!-- Códigos numéricos -->
+                <tr><td>Código 0</td><td>Alta prioridad (todas unidades)</td></tr>
+                <tr><td>Código 1</td><td>Cambio de prioridad</td></tr>
+                <tr><td>Código 2</td><td>Solo balizas</td></tr>
+                <tr><td>Código 3</td><td>Balizas y sirenas</td></tr>
+                <tr><td>Código 4</td><td>Finalizar asignación</td></tr>
+                <tr><td>Código 5</td><td>Mantenerse fuera de zona</td></tr>
+                <tr><td>Código 6</td><td>En misión/ocupado</td></tr>
+                <tr><td>Código 7</td><td>Fuera de servicio</td></tr>
+                <tr><td>Código 8</td><td>Actividades internas</td></tr>
+                <tr><td>Código 9</td><td>Cerrar perímetro</td></tr>
+                <tr><td>Código 10</td><td>Despejar frecuencia</td></tr>
+            </table>
+
+            <div class="highlight" style="margin-top:20px;">
+                <h3>Protocolos de Uso</h3>
+                <ul>
+                    <li>El código Robert solo aplica después de 5 segundos de conducción temeraria</li>
+                    <li>El código Pit requiere autorización de mando</li>
+                    <li>Los códigos 0-10 deben usarse con responsabilidad</li>
+                </ul>
+            </div>
+        </div>
 
         <!-- NEGOCIACIONES -->
         <div class="highlight">
