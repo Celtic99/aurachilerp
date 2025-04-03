@@ -519,6 +519,65 @@
         html {
             scroll-behavior: smooth;
         }
+        .hierarchy-container {
+    margin: 30px auto;
+    max-width: 800px;
+    background: var(--card);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+.hierarchy-logo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.hierarchy-logo img {
+    max-height: 100px;
+    max-width: 100%;
+}
+
+.hierarchy-header {
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--primary-light);
+}
+
+.hierarchy-item {
+    background: var(--bg);
+    border: 2px solid var(--primary-light);
+    border-radius: 8px;
+    padding: 12px 15px;
+    text-align: center;
+    margin: 5px auto;
+    max-width: 250px;
+}
+
+.hierarchy-item.primary {
+    background: var(--highlight-bg);
+    border-color: var(--highlight-border);
+    font-weight: 500;
+}
+
+.hierarchy-divider {
+    text-align: center;
+    margin: 25px 0;
+    position: relative;
+    color: var(--primary);
+    font-style: italic;
+    font-weight: 500;
+}
+
+.hierarchy-divider::before,
+.hierarchy-divider::after {
+    content: "......→";
+    margin: 0 10px;
+    color: var(--primary-light);
+}
     </style>
 </head>
 <body>
@@ -618,43 +677,42 @@
         </div>
 
         <div class="highlight">
-            <h2>Jerarquía Institucional</h2>
+    <h2>Jerarquía Institucional</h2>
+    
+    <div class="hierarchy-container">
+        <div class="hierarchy-logo">
+            <img src="https://www.jmn.cl/assets/img/clients/logo-clinica-davila.png" alt="Clínica Dávila">
+        </div>
+        
+        <div class="hierarchy-item primary" style="margin-bottom: 20px;">Director Médico</div>
+        <div class="hierarchy-item">Sub Director Médico</div>
+        <div class="hierarchy-item">Médico Especialista</div>
+        
+        <div class="hierarchy-divider">Rango más alto</div>
+        
+        <div style="display: flex; justify-content: center; gap: 40px; margin: 20px 0;">
+            <div style="text-align: center;">
+                <div class="hierarchy-header">Rescatistas</div>
+                <div class="hierarchy-item">Rescatista Táctico</div>
+                <div class="hierarchy-item">Rescatista en Terreno</div>
+                <div class="hierarchy-item">Rescatista Iniciado</div>
+            </div>
             
-            <div class="hierarchy-container">
-                <div class="hierarchy-logo">
-                    <img src="https://www.jmn.cl/assets/img/clients/logo-clinica-davila.png" alt="Clínica Dávila">
-                </div>
-                
-                <div class="hierarchy-divider">Rango más alto</div>
-                
-                <div class="hierarchy-item primary">Director Médico</div>
-                <div class="hierarchy-item">Sub-Director Médico</div>
-                <div class="hierarchy-item">Médico Especialista</div>
-                
-                <div class="hierarchy-grid">
-                    <div class="hierarchy-column">
-                        <div class="hierarchy-header">Rescatistas</div>
-                        <div class="hierarchy-item">Rescatista Táctico</div>
-                        <div class="hierarchy-item">Rescatista en Terreno</div>
-                        <div class="hierarchy-item">Rescatista Iniciado</div>
-                    </div>
-                    
-                    <div class="hierarchy-column">
-                        <div class="hierarchy-header">Personal Médico</div>
-                        <div class="hierarchy-item">Médico Residente</div>
-                        <div class="hierarchy-item">Médico</div>
-                        <div class="hierarchy-item">Enfermero</div>
-                    </div>
-                </div>
-                
-                <div class="hierarchy-divider">Especialidades en terreno</div>
-                <div class="hierarchy-item">Técnico en urgencias</div>
-                
-                <div class="hierarchy-divider">Rango de entrada</div>
-                <div class="hierarchy-item">Estudiante</div>
+            <div style="text-align: center;">
+                <div class="hierarchy-header">Personal Médico</div>
+                <div class="hierarchy-item">Médico Residente</div>
+                <div class="hierarchy-item">Médico</div>
+                <div class="hierarchy-item">Enfermero</div>
             </div>
         </div>
-
+        
+        <div class="hierarchy-divider">Especialidades en terreno</div>
+        <div class="hierarchy-item">Técnico en urgencias</div>
+        
+        <div class="hierarchy-divider">Rango de entrada</div>
+        <div class="hierarchy-item">Estudiante</div>
+    </div>
+</div>
         <div class="highlight">
             <h2>Normativas OOC</h2>
             <ul>
