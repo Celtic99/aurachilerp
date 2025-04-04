@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Normativa Principal - Aura Chile RP</title>
+    <link rel="icon" href="assets/logo2.png" type="aura-logo">  <!-- AGREGUE ICONO DE PAG -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -198,6 +199,7 @@ body {
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
+            display: flex;    /* Modificacion por el error de lupa */
         }
 
         #search-input {
@@ -299,12 +301,7 @@ body {
             padding-left: 15px;
         }
 
-        ul li::before {
-            content: "•";
-            color: var(--accent);
-            position: absolute;
-            left: 0;
-        }
+        /* borre lo que estaba dando error del ul y li */
 
         ol {
             list-style-type: decimal;
@@ -399,7 +396,50 @@ body {
                 margin: 20px;
                 padding: 0 15px;
             }
+/*  modifique un poco del responsive de 768px -> el search conteiner + logo mas grande  */  
+            .brand-wrapper {
+                justify-content: center;
+                width: 100%;
 
+            }
+            .brand-text {
+                color: var(--primary);
+                font-weight: 600;
+                font-size: 1.9rem;
+                white-space: nowrap;
+            }
+            
+            .nav-logo {
+                height: 60px;
+            }
+
+            .search-container {
+                position: relative;
+                width: 80%;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            #search-input {
+                width: 100%;
+                padding: 10px 45px 10px 15px; 
+                font-size: 0.9rem;
+                margin: 0 auto;
+            }
+
+            #search-btn {
+                position: absolute;
+                top: 50%;
+                right: 15px;
+                transform: translateY(-50%);
+                cursor: pointer;
+            }
+
+            #search-btn svg {
+                width: 20px;
+                height: 20px;
+            }
+/*  */
             .nav-content {
                 flex-direction: column;
                 align-items: flex-start;
